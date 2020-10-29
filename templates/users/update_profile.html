@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  @{{ user.username }} | Update Profile {{ block.super }}
+{% endblock title %}
+
+
+{% load static %}
+
+{% block container %}
+  <div class="container-update-profile">
+    <form method="POST" action="{% url 'users:update_profile' %}" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="row">
+        <div class="col col-lg-6 offset-lg-3">
+          <div class="user-data">
+              {% if errors %}
+                {% for error in errors %}
+                  <div class="alert alert-danger text-center">
+                    {{ error }}
+                  </div>
+                {% endfor %}
+              {% endif %}
+              <div class="profile-picture picture-big m-auto" onmouseover="ProfileOverImage('profile-picture-{{user.pk}}')" onmouseout="ProfileOutImage('profile-picture-{{user.pk}}-hover')">
+                <div class="hover-img justify-content-center align-items-center rounded-circle" id="profile-picture-{{user.pk}}-hover" >
+                  <div class="input-group">
+                    <div class="custom-file justify-content-center">
+                    <input type="file" class="custom-file-input {% if form.picture.errors %}is-invalid{% endif %}" id="picture-{{ user.pk }}" aria-describedby="picture-{{ user.pk }}" name="picture" onchange="setFileName('picture-{{ user.pk }}')">
+                    <label class="custom-file-label" id="picture-{{ user.pk }}-label">Change photo...</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="embed-responsive embed-responsive-1by1">
+                  <img src="{% if profile.picture %}{{ profile.picture.url }}{% else %}{% static 'img/user_logo.png' %}{% endif %}" alt="{{ user.first_name }}" class="embed-responsive-item rounded-circle" id="profile-picture-{{user.pk}}" >
+                </div>
+              </div>
+              <div class="text-center">
+                <h2>@{{ user.username }}</h2>
+                <div class="form-group row">
+                  <div class="col">
+                    <input type="text" class="form-control {% if form.first_name.errors %} is-invalid {% endif %}"  id="first_name" name="first_name" value="{% if form.errors or errors%}{{ form.first_name.value }}{% else %}{{ user.first_name }}{% endif %}">
+                    <div class="invalid-feedback text-left">
+                      {% for error in form.first_name.errors %}
+                        {{ error }}
+                      {% endfor %}
+                    </div>
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control {% if form.last_name.errors %} is-invalid {% endif %}"  id="last_name" name="last_name" value="{% if form.errors or errors%}{{ form.last_name.value }}{% else %}{{ user.last_name }}{% endif %}">
+                    <div class="invalid-feedback text-left">
+                      {% for error in form.last_name.errors %}
+                        {{ error }}
+                      {% endfor %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="">
+                <div class="form-group">
+                  <h6 class="d-inline">Email: </h6>
+                  <input type="text" class="form-control {% if form.email.errors %} is-invalid {% endif %}"  id="email" name="email" value="{% if form.errors or errors%}{{ form.email.value }}{% else %}{{ user.email }}{% endif %}">
+                  <div class="invalid-feedback">
+                    {% for error in form.email.errors %}
+                      {{ error }}
+                    {% endfor %}
+                  </div>
+                </div>
+                <div class="form-group">
+                  <h6 class="d-inline">Birthday: </h6>
+                  <div class="row">
+                    <div class="col">
+                      <small id="birthday-help" class="form-text text-muted">Day</small>
+                      <input type="text" class="form-control {% if form.birthday.errors %} is-invalid {% endif %}" id="birthday" name="birthday" value="{% if form.errors %}{{ form.birthday.value }}{% else %}{{ profile.birthday }}{% endif %}">
+                      <div class="invalid-feedback">
+                        {% for error in form.birthday.errors %}
+                          {{ error }}
+                        {% endfor %}
+                      </div>
+                    </div>
+                    <div class="col">
+                      <small id="birthmonth-help" class="form-text text-muted">Month</small>
+                      <input type="text" class="form-control {% if form.birthmonth.errors %} is-invalid {% endif %}" id="birthmonth" name="birthmonth" value="{% if form.errors %}{{ form.birthmonth.value }}{% else %}{{ profile.birthmonth}}{% endif %}">
+                      <div class="invalid-feedback">
+                        {% for error in form.birthmonth.errors %}
+                          {{ error }}
+                        {% endfor %}
+                      </div>
+                    </div>
+                    <div class="col">
+                      <small id="birthyear-help" class="form-text text-muted">Year</small>
+                      <input type="text" class="form-control {% if form.birthyear.errors %} is-invalid {% endif %}" id="birthyear" name="birthyear" value="{% if form.errors %}{{ form.birthyear.value }}{% else %}{{ profile.birthyear }}{% endif %}">
+                      <div class="invalid-feedback">
+                        {% for error in form.birthyear.errors %}
+                          {{ error }}
+                        {% endfor %}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <h6 class="d-inline">Phone number: </h6>
+                  <input type="text" class="form-control {% if form.phone_number.errors %} is-invalid {% endif %}"  id="phone_number" name="phone_number" value="{% if form.errors or errors%}{{ form.phone_number.value }}{% else %}{{ profile.phone_number }}{% endif %}">
+                  <div class="invalid-feedback">
+                    {% for error in form.phone_number.errors %}
+                      {{ error }}
+                    {% endfor %}
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="">Description: </label>
+                  <textarea class="form-control {% if form.description.errors %} is-invalid {% endif %}" name="description" id="description" style="height:120px; resize:none;" placeholder="Says something about you..."
+                  >{% if form.errors or errors%}{{ form.description.value }}{% else %}{{ profile.description }}{% endif %}</textarea>
+                  <div class="invalid-feedback">
+                      {% for error in form.description.errors %}
+                        {{ error }}
+                      {% endfor %}
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+{% endblock container %}
+{% block script %}
+  {{ block.super }}
+  <script src="{% static 'js/label_name.js' %}"></script>
+  <script src="{% static 'js/update_profile.js' %}"></script>
+{% endblock script %}

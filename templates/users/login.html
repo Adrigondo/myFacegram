@@ -1,0 +1,41 @@
+{% extends 'users/base.html' %}
+
+{% block title %}
+    Log In | Platzigram
+{% endblock title %}
+
+{% block container %}
+    <div class="container container-sesion">
+        {% for item in errors %}
+            {% for error in item %}
+                <div class="alert alert-danger">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+        {% load static %}
+        <img class="" src="{% static 'img/user_logo.png'%}" alt="" width="72" height="72">
+        <h1 class="h1 mb-4">Log in!</h1>
+        {% if error %}
+            <p style="color: red;"> {{ error }}</p>
+        {% endif %}
+        <form method="POST" action="{% url 'users:login' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Username" name="username">
+                <input class="form-control" type="password" placeholder="Password" name="password">  
+            </div>
+            <div class="checkbox mb-3">
+                <label>
+                <input type="checkbox" value="remember-me"> Remember me
+                </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block mb-3" type="submit">Log in</button>
+        </form>
+        <div class="mb-3">
+            <span class="">
+                Don't have an account yet? <a href="{% url 'users:signup' %}">Sign up</a>
+            </span>
+        </div>
+    </div>
+{% endblock container %}

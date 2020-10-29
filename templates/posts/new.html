@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block container %}
+    <div class="create-post">
+        <div class="h1">Create a new post!</div>
+        <form action="{% url 'posts:create' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="hidden" name="user" value="{{ user.pk }}">
+            <input type="hidden" name="profile" value="{{ profile.pk }}">
+            <div class="form-group">
+                <input class="post-title form-control {% if form.title.errors %} is-invalid {% endif %}" type="text" placeholder="Post title" name="title" value="{% if form.errors %}{{ form.title.value }}{% endif %}">
+                <div class="invalid-feedback">
+                    {% for error in form.title.errors %}
+                    {{ error }}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control {% if form.content_text.errors %} is-invalid {% endif %}" name="content_text" placeholder="Count what you want..."
+                >{% if form.errors %}{{ form.content_text.value }}{% endif %}</textarea>
+                <div class="invalid-feedback">
+                    {% for error in form.content_text.errors %}
+                    {{ error }}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="input-group col col-md-8">
+                        <div class="custom-file">
+                        <input type="file" class="custom-file-input
+                        {% if form.photo.errors %}
+                            is-invalid
+                        {% endif %}
+                        " id="photo" aria-describedby="photo" name="photo" onchange="setFileName('photo')">
+                        <label class="custom-file-label" id="photo-label">Select a file...</label>
+                        </div>
+                    </div>
+                    <div class="invalid-feedback">
+                        {% for error in form.photo.errors %}
+                        {{ error }}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="mb-3 d-flex justify-content-end">
+                    <button class="btn btn-primary btn-rounded" type="submit" name="create_post">
+                        <div class="d-flex justify-content-center align-items-center">
+                        <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-upload" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                        <path fill-rule="evenodd" d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z"/>
+                        </svg>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock container %}
+{% block script %}
+    {{ block.super }}
+    <script src="{% static 'js/label_name.js' %}"></script>
+{% endblock script %}

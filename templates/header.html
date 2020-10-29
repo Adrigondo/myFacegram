@@ -1,0 +1,30 @@
+{% load static %}
+<header>
+    <div class="header">
+        <div class="navbar">
+            <ul>
+                <a href="{% url 'users:profile' request.user.username %}" class="profile-picture">
+                    <div class="profile-picture-container embed-responsive embed-responsive-1by1">
+                        <img src="{% if request.user.profile.picture %}{{ request.user.profile.picture.url }}{% else %}{% static 'img/user_logo.png' %}{% endif %}" alt="profile-picture" class="embed-responsive-item rounded-circle img-fluid">
+                    </div>
+                </a>
+                <a href="{% url 'posts:create' %}">
+                    <img class="icon" src="{% static 'img/add.png' %}" alt="" >
+                </a>
+                <a href="{% url 'users:logout' %}">
+                    <img class="icon" src="{% static 'img/logout.png' %}" alt="">
+                </a>
+            </ul>
+        </div>
+        <div class="brand">
+            <div class="brand-element">
+                <h1>Platzigram</h1>
+            </div>
+            <div class="brand-element">
+                <a href="{% url 'posts:feed' %}">
+                <img src="{% static 'img/instagram.png' %}" height="45" class="d-inline-block align-top"/>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
