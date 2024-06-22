@@ -26,7 +26,7 @@ SECRET_KEY = os.environ["SECRET_KEY"]
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-# TODO import host from back4app
+# TODO Add host from back4app
 ALLOWED_HOSTS = [
     '127.0.0.1',
 ]
@@ -130,8 +130,11 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-# TODO Understand wich value must have the static root
-STATIC_ROOT = '/static/'
+
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
 
 STATIC_URL = '/static/'
 
