@@ -1,0 +1,29 @@
+html{
+    height: 100%;
+}
+body{
+    margin: 0;
+    height: 100%;
+    box-sizing: border-box;
+    background: rgb(24,23,31);
+    background: linear-gradient(45deg, rgba(24,23,31,1) 0%, rgba(18,15,83,1) 55%, rgba(0,99,255,1) 100%);
+}
+.container-sesion{
+    max-width: 400px;
+    padding: 20px 30px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    box-shadow: 2px 2px 20px -5px #2c2d2ca6;
+    border-radius: 10px;
+}
+.container-sesion h1,
+.container-sesion h2{
+    margin: 10px 0px;
+    letter-spacing: 2px;
+}
+.container-sesion p{
+    font-size: 20px;
+}
+.invalid-feedback{
+    text-align: start!important;
+}
