@@ -1,4 +1,10 @@
-
+# myFacegram
+This app were build based in the Course of Django from Platzi imparted by Pablo Trinidad.
+## TODOS
+- Configure static route
+- Configure cache
+- Implement rotating keys
+- Implement loging
 ## Steps for use Poetry
 *(This installation is for windows)*
 This steps are better explained in the [official documentation of Poetry](https://python-poetry.org/docs/).
