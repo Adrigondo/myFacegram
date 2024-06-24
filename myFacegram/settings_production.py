@@ -29,9 +29,8 @@ DEBUG = False
 # TODO Add host from back4app
 ALLOWED_HOSTS = [
     '127.0.0.1',
-    'localhost',
-    os.environ["PROD_HOST"]
-]
+    'localhost'
+]+os.environ["PROD_HOST"].split(",");
 
 
 # Application definition
