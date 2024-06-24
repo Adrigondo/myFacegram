@@ -2,7 +2,7 @@
 media/*
 
 # Secret vars
-./environment/.env.production
+environment/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

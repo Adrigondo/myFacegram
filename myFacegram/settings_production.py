@@ -29,9 +29,11 @@ DEBUG = False
 # TODO Add host from back4app
 ALLOWED_HOSTS = [
     '127.0.0.1',
-    'localhost'
+    'localhost',
     'myfacegram-bohfye0n.b4a.run',
-    'node85a.containers.back4app.com'
+    'https://myfacegram-bohfye0n.b4a.run/',
+    'node85a.containers.back4app.com',
+    'https://node85a.containers.back4app.com',
 ]
 
 # Application definition
