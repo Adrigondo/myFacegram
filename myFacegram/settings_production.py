@@ -35,11 +35,11 @@ ALLOWED_HOSTS = [
     'node85a.containers.back4app.com',
     'https://node85a.containers.back4app.com',
 ]
-CSRF_TRUSTED_ORIGINS = ['https://myfacegram-bohfye0n.b4a.run']
-CSRF_ALLOWED_ORIGINS = ['https://myfacegram-bohfye0n.b4a.run']
-CORS_ORIGINS_WHITELIST = ['https://myfacegram-bohfye0n.b4a.run']
+CSRF_TRUSTED_ORIGINS = ['https://node85a.containers.back4app.com','https://myfacegram-bohfye0n.b4a.run']
+CSRF_ALLOWED_ORIGINS = ['https://node85a.containers.back4app.com','https://myfacegram-bohfye0n.b4a.run']
+CORS_ORIGINS_WHITELIST = ['https://node85a.containers.back4app.com','https://myfacegram-bohfye0n.b4a.run']
 CSRF_USE_SESSIONS=True
-CSRF_COOKIE_SECURE=False
+CSRF_COOKIE_SECURE=True
 # Application definition
 
 INSTALLED_APPS = [
