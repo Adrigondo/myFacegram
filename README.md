@@ -34,3 +34,11 @@ pipx uninstall poetry
 ```
 
 ### In initialized proyects
+```sh
+poetry init
+```
+
+## Docker
+```sh
+docker run -dti -p8000:8000 --name my-facegram --env-file ./environment/.env.production poetry-django
+```
