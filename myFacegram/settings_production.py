@@ -30,8 +30,9 @@ DEBUG = False
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost'
-]+os.environ["PROD_HOST"].split(",")
-print(ALLOWED_HOSTS)
+    'myfacegram-bohfye0n.b4a.run',
+    'node85a.containers.back4app.com'
+]
 
 # Application definition
 
