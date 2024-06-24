@@ -8,6 +8,7 @@ RUN python -m pip install --user pipx
 RUN python -m pipx ensurepath
 RUN python -m pipx install poetry
 RUN python -m pipx run poetry install
+RUN python -m pipx run poetry run python manage.py migrate
 
 EXPOSE 8000
 # CMD sh
