@@ -31,11 +31,15 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
     'myfacegram-bohfye0n.b4a.run',
-    'https://myfacegram-bohfye0n.b4a.run/',
+    'https://myfacegram-bohfye0n.b4a.run',
     'node85a.containers.back4app.com',
     'https://node85a.containers.back4app.com',
 ]
-
+CSRF_TRUSTED_ORIGINS = ['https://myfacegram-bohfye0n.b4a.run']
+CSRF_ALLOWED_ORIGINS = ['https://myfacegram-bohfye0n.b4a.run']
+CORS_ORIGINS_WHITELIST = ['https://myfacegram-bohfye0n.b4a.run']
+CSRF_USE_SESSIONS=True
+CSRF_COOKIE_SECURE=False
 # Application definition
 
 INSTALLED_APPS = [
@@ -151,8 +155,6 @@ STATICFILES_FINDERS = [
 
 LOGIN_URL = '/users/login/'
 
-SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
-CSRF_COOKIE_SECURE=True
 SRF_COOKIE_SECURE=True
 
 # TODO Configure Cache
