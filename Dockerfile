@@ -11,4 +11,4 @@ RUN python -m pipx run poetry install
 
 EXPOSE 8000
 # CMD sh
-CMD python -m pipx run poetry run daphne myFacegram.asgi:application -b 0.0.0.0 -p 8000
+CMD python -m pipx run poetry run daphne myFacegram.asgi:application -p 8000
