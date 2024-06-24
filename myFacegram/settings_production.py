@@ -30,8 +30,8 @@ DEBUG = False
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost'
-]+os.environ["PROD_HOST"].split(",");
-
+]+os.environ["PROD_HOST"].split(",")
+print(ALLOWED_HOSTS)
 
 # Application definition
 
@@ -148,6 +148,7 @@ STATICFILES_FINDERS = [
 
 LOGIN_URL = '/users/login/'
 
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 CSRF_COOKIE_SECURE=True
 SRF_COOKIE_SECURE=True
 

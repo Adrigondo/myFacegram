@@ -1,6 +1,9 @@
 # Server media
 media/*
 
+# Secret vars
+./environment/.env.production
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
