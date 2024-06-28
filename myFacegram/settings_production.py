@@ -100,8 +100,16 @@ WSGI_APPLICATION = 'myFacegram.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.environ['AWS_DB_NAME'],
+        'USER': os.environ['AWS_DB_USER'],
+        'PASSWORD': os.environ['AWS_DB_PASSWORD'],
+        'HOST': os.environ['AWS_DB_HOST'],
+        'PORT': os.environ['AWS_DB_PORT'],
+        'OPTIONS':{
+            'sql_mode': 'STRICT_TRANS_TABLES',
+            # 'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        }
     }
 }
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'

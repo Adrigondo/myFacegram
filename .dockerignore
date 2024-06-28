@@ -1,5 +1,3 @@
 .venv
-media
-static
 environment/*
 db.sqlite3

@@ -40,5 +40,10 @@ poetry init
 
 ## Docker
 ```sh
+docker build -t poetry-django .
+
 docker run -dti -p8000:8000 --name my-facegram --env-file ./environment/.env.production poetry-django
+
+# To watch the logs
+docker run -ti -p8000:8000 --name my-facegram --env-file ./environment/.env.production poetry-django
 ```
