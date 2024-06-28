@@ -10,7 +10,7 @@ package-mode = false
 [tool.poetry.dependencies]
 python = "^3.12"
 asgiref = "^3.8.1"
-Django = "^5.0.6"
+Django = "^3.2.25"
 pillow = "^10.3.0"
 pytz = "^2024.1"
 sqlparse = "^0.5.0"
