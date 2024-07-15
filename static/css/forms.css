@@ -1,0 +1,47 @@
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .btn-file.btn-image {
+    height: fit-content;
+    display: block;
+  }
+  
+  .square-image img {
+    min-width: 100%;
+    width: 100%;
+    min-height: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    aspect-ratio: 1;
+  }
+  
+  /* 
+  .btn-file.btn-image:before {
+    padding-bottom: 100%;
+    content: '';
+    float: left;
+  }
+  
+  .btn-file.btn-image:after {
+    display: table;
+    content: '';
+    clear: both;
+  } */
+  
+  .btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    cursor: inherit;
+    display: block;
+  }
+  
