@@ -23,7 +23,7 @@ class ImagePreview extends Observable {
     }
 }
 const DefaultPersonImageUrl = './assets/img/avatar.jpeg';
-const imagePreview = new ImagePreview();
+const imagePreview = new ImagePreview(DefaultPersonImageUrl);
 let imageFile = "";
 let imageUrl = "";
 imagePreview.onChange((value)=>{
@@ -37,7 +37,7 @@ let invalidPhoto = {
 let maxFileSize = 1048576 * 4; // 1MB
 
 const onImageSelected = (event) => {
-    console.log("EVENT", event)
+    console.log("EVENT", event);
     let input = (event.target);
     if (!input.files || !input.files.length) {
         return;

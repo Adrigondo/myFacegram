@@ -27,22 +27,19 @@
         </div>
       </div>
       <div class="form-group">
-        <span class="btn btn-secondary btn-image btn-file square-image cursor-pointer p-0">
-          <img alt="Imagen del evaluado" class="img-fluid w-100 h-100" id="image-preview" />
-          <input onchange="onImageSelected(event)" type="file" placeholder="Imagen" id="photo" aria-describedby="photo" name="photo" class="form-control position-absolute
-                        {% if form.photo.errors %}
-                        is-invalid
-                        {% endif %}" />
+        <span class="btn btn-image btn-file square-image cursor-pointer p-0">
+          <input onchange="onImageSelected(event)" type="file" placeholder="Imagen" id="photo" aria-describedby="photo" name="photo" class="form-control position-absolute" required/>
+          <div class="dropdown-input">Arrastra aqui una imagen.</div>
+          <img alt="Imagen del evaluado" class="image-preview img-fluid w-100 h-100" id="image-preview" />
         </span>
-        <span class="btn btn-secondary btn-file w-100 mt-2">Cambiar Imagen<input onchange="onImageSelected(event)" id="photo" aria-describedby="photo" name="photo" type="file" placeholder="Imagen" /></span>
-        {% if form.photo.errors %}
+        {% comment %} {% if form.photo.errors %}
           {% if invalidPhoto.type %}
             <div class="invalid-feedback">* El tipo de archivo no es válido.</div>
           {% endif %}
           {% if invalidPhoto.size %}
             <div class="invalid-feedback">* El tamaño de la imagen debe ser menor a 1MB.</div>
           {% endif %}
-        {% endif %}
+        {% endif %} {% endcomment %}
       </div>
       {% comment %} <div class="form-group">
         <div class="row">
