@@ -31,9 +31,9 @@
                 <a href="{% url 'posts:post' post.user.username post.id %}" class="content-post-url">
                     <div class="content-post">
                     {% if post.title %}
-                        <h5 class="mt-2 mb-0">
+                        <h2 class="post-title mt-2 mb-0">
                             {{ post.title }}
-                        </h5>
+                        </h2>
                         <p class="mb-0">
                             {{ post.content_text }}
                         </p>
