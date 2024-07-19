@@ -4,6 +4,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, DetailView, TemplateView, CreateView
 from django.urls import reverse_lazy
 
+from datetime import datetime
+
 from posts.forms import PostForm
 from posts.models import Post
 
@@ -31,6 +33,7 @@ class CreatePostView(LoginRequiredMixin, CreateView):
     def get_context_data(self, **kwargs):
         """Add user and profile to context"""
         context = super().get_context_data(**kwargs)
+        context["current_date"] = datetime.today()
         context["user"] = self.request.user
         context["profile"] = self.request.user.profile
         return context   
