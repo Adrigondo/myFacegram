@@ -200,29 +200,10 @@ body{
     margin-top: 2px;
 }
 
-<<<<<<< HEAD
-/* -------------- CREATE POST ------------- */
-.create-post{
-    border-radius: 5px;
-    background-color: #ffffff;
-    box-shadow: 2px 2px 10px 0px #dbdbdb;
-    padding: 1em;
-    margin: 2em;
-}
-.create-post .form-control{
-    border: 0px;
-    border-radius: unset;
-    border-bottom: 1px solid #9c9c9c;
-}
-.create-post .post-title.form-control{
-    font-size: 30px;
-    font-weight: 700;
-=======
 .post-title{
     font-size: 30px;
     font-weight: 700;
     color: rgb(22, 22, 22);
->>>>>>> master
 }
 .user-picture{
     width: 80px;
