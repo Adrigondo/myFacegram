@@ -1,48 +1,3 @@
-.btn-file {
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-file input[type="file"] {
-  position: absolute;
-  top: 0;
-  right: 0;
-  min-width: 100%;
-  min-height: 100%;
-  filter: alpha(opacity=0);
-  opacity: 0;
-  outline: none;
-  cursor: inherit;
-  display: block;
-}
-
-/* .btn-file input[type="file"]:valid {
-  background-color: blue;
-}
-.btn-file input[type="file"]:invalid {
-  background-color: red;
-} */
-.btn-file input[type="file"]:invalid~.dropdown-input {
-  display: unset;
-}
-
-.btn-file input[type="file"]:valid~.dropdown-input {
-  display: none;
-}
-
-.btn-file input[type="file"]:invalid~.image-preview {
-  display: none;
-}
-
-.btn-file input[type="file"]:valid~.image-preview {
-  display: unset;
-}
-
-.btn-file.btn-image {
-  height: fit-content;
-  display: block;
-}
-
 .square-image img {
   min-width: 100%;
   width: 100%;
@@ -52,19 +7,6 @@
   object-position: center;
   aspect-ratio: 1;
 }
-
-/* 
-  .btn-file.btn-image:before {
-    padding-bottom: 100%;
-    content: '';
-    float: left;
-  }
-  
-  .btn-file.btn-image:after {
-    display: table;
-    content: '';
-    clear: both;
-  } */
 
 /* -------------- CREATE POST ------------- */
 .create-post {
@@ -80,6 +22,7 @@
   border-radius: 2px;
   border-bottom: 1px solid #9c9c9c;
   padding: 0px;
+  margin-bottom: 0px;
 }
 .create-post .form-control:focus {
   border-bottom: 2px solid #004dc8;

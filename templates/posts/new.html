@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
 
 {% load static %}
+
 {% block container %}
+  {% block css %}
+    <link rel="stylesheet" href="{% static 'css/drag_and_drop.css' %}" />
+  {% endblock %}
   {% comment %}TODO Add breadcrumb navigation{% endcomment %}
   <div class="row justify-content-center">
     <div class="col-lg-6 post-min-container create-post p-4">
@@ -32,8 +36,6 @@
               {{ error }}
             {% endfor %}
           </div>
-        </div>
-        <div class="form-group">
           <p class="post-content form-control {% if form.title.errors %} is-invalid {% endif %}" id="content_text__editable" role="textbox" contenteditable>{% if form.errors %}{{ form.title.value }}{% endif %}</p>
           <textarea hidden name="content_text" id="content_text"></textarea>
           <div class="invalid-feedback">
@@ -44,8 +46,14 @@
         </div>
         <div class="form-group">
           <span class="btn btn-image btn-file square-image cursor-pointer p-0">
-            <input onchange="onImageSelected(event)" type="file" placeholder="Imagen" id="photo" aria-describedby="photo" name="photo" class="form-control position-absolute" required />
-            <div class="dropdown-input">Arrastra aqui una imagen.</div>
+            <input onchange="onImageSelected(event)" type="file" placeholder="Imagen" id="photo" aria-describedby="photo" name="photo" class="form-control" required />
+            {% comment %} <div class="dropzone" id="drop_zone" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">
+              <p>Arrastra aqui una imagen.</p>
+            </div> {% endcomment %}
+            <div for="photo" class="dropzone">
+              <img src="{% static 'img/Photo_01.png' %}"/>
+              <span class="content-text">Arrastra aqui una imagen.</span>
+            </div>
             <img alt="Imagen del evaluado" class="image-preview img-fluid w-100 h-100" id="image-preview" />
           </span>
           {% comment %} {% if form.photo.errors %}
@@ -94,6 +102,7 @@
 {% endblock %}
 {% block script %}
   {{ block.super }}
-  <script src="{% static 'js/label_name.js' %}"></script>
+  <script src="{% static 'js/posts/new.js' %}"></script>
+  <script src="{% static 'js/drag_and_drop.js' %}"></script>
   <script src="{% static 'js/load_photo.js' %}"></script>
 {% endblock %}
