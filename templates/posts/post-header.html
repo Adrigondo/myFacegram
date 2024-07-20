@@ -1,0 +1,14 @@
+{% load static %}
+<a href="{% url 'users:profile' user.username %}" class="post-header d-flex align-items-center">
+  <div class="profile-picture-container post-user-picture">
+    {% if profile.picture %}
+      <img class="profile-picture rounded-circle" src="{{ profile.picture.url }}" alt="Picture profile of {{ user }}" />
+    {% else %}
+      <img class="profile-picture rounded-circle" src="{% static 'img/user_logo.png' %}" alt="Picture profile of {{ user }}" />
+    {% endif %}
+  </div>
+  <div class="post-data ml-2">
+    <h3 class="post-user">{{ user }}</h3>
+    <span class="post-date">{{ created }}</span>
+  </div>
+</a>

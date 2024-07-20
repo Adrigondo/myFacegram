@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 
+{% block title %}
+  @{{ user.username }} | New Post
+  {{ block.super }}
+{% endblock %}
+
 {% load static %}
 
 {% block container %}
@@ -9,21 +14,7 @@
   {% comment %}TODO Add breadcrumb navigation{% endcomment %}
   <div class="row justify-content-center">
     <div class="col-lg-6 post-min-container create-post p-4">
-      <div class="user-banner d-flex align-items-center">
-        <a href="{% url 'users:profile' user.username %}" class="profile-picture user-picture">
-          <div class="embed-responsive embed-responsive-1by1">
-            {% if profile.picture %}
-              <img class="rounded-circle embed-responsive-item rounded-circle" src="{{ profile.picture.url }}" alt="Picture profile of {{ user }}" />
-            {% else %}
-              <img class="rounded-circle embed-responsive-item rounded-circle" src="{% static 'img/user_logo.png' %}" alt="Picture profile of {{ user }}" />
-            {% endif %}
-          </div>
-        </a>
-        <div class="post-data ml-2">
-          <h4 class="">{{ user.username }}</h4>
-          <span>{{ current_date }}</span>
-        </div>
-      </div>
+      {% include "posts/post-header.html" with user=user profile=profile created=created %}
       <form action="{% url 'posts:create' %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <input type="hidden" name="user" value="{{ user.pk }}" />
