@@ -1,55 +1,49 @@
 {% extends 'base.html' %}
 
 {% block title %}
-   Posts
-   {{ block.super }}
+  Posts
+  {{ block.super }}
 {% endblock %}
 
 {% load static %}
 
 {% block container %}
+  <div class="row justify-content-center">
     {% for post in posts %}
-        <div class="row justify-content-center">
-            <div class="col-lg-6 post-min-container p-4">
-                <div class="user-banner d-flex align-items-center">
-                    <a href="{% url 'users:profile' post.user.username %}" class="profile-picture user-picture">
-                        <div class="embed-responsive embed-responsive-1by1">
-                            {% if post.profile.picture %}
-                                <img class="rounded-circle embed-responsive-item rounded-circle" src="{{ post.profile.picture.url }}" alt="Picture profile of {{ post.user }}">
-                            {% else %}
-                                <img class="rounded-circle embed-responsive-item rounded-circle" src="{% static 'img/user_logo.png' %}" alt="Picture profile of {{ post.user }}">
-                            {% endif %}
-                        </div>
-                    </a>
-                    <div class="data-post ml-2">
-                        <h4 class="" >
-                            {{ post.user }}
-                        </h4>
-                        <span>{{ post.created }}</span>
-                    </div>
-                </div>
-                <a href="{% url 'posts:post' post.user.username post.id %}" class="content-post-url">
-                    <div class="content-post">
-                    {% if post.title %}
-                        <h2 class="post-title mt-2 mb-0">
-                            {{ post.title }}
-                        </h2>
-                        <p class="mb-0">
-                            {{ post.content_text }}
-                        </p>
-                    {% else %}
-                        <p class="mt-1 mb-0">
-                            {{ post.content_text }}
-                        </p>
-                    {% endif %}
-
-                    {% if post.photo %}
-                        <img class="img-fluid mt-1 rounded post-photo" src="{{ post.photo.url }}" alt="Image blog: {{ post.title }}">
-                    {% endif %}
-                    </div>
-                </a>
+      <div class="col-lg-6">
+        {% include 'posts/post.html' with post=post%}
+        {% comment %} <div class="post-min-container p-4">
+          <a href="{% url 'posts:post' post.user.username post.id %}" class="content-post-url"></a>
+          <div class="user-banner d-flex align-items-center">
+            <a href="{% url 'users:profile' post.user.username %}" class="profile-picture user-picture">
+              <div class="embed-responsive embed-responsive-1by1">
+                {% if post.profile.picture %}
+                  <img class="rounded-circle embed-responsive-item rounded-circle" src="{{ post.profile.picture.url }}" alt="Picture profile of {{ post.user }}" />
+                {% else %}
+                  <img class="rounded-circle embed-responsive-item rounded-circle" src="{% static 'img/user_logo.png' %}" alt="Picture profile of {{ post.user }}" />
+                {% endif %}
+              </div>
+            </a>
+            <div class="post-data ml-2">
+              <h4 class="">{{ post.user }}</h4>
+              <span>{{ post.created }}</span>
             </div>
-        </div>
+          </div>
+          <div class="content-post">
+            {% if post.title %}
+              <h2 class="post-title mt-2 mb-0">{{ post.title }}</h2>
+              <p class="mb-0">{{ post.content_text }}</p>
+            {% else %}
+              <p class="mt-1 mb-0">{{ post.content_text }}</p>
+            {% endif %}
+
+            {% if post.photo %}
+              <img class="img-fluid mt-1 rounded post-photo" src="{{ post.photo.url }}" alt="Image blog: {{ post.title }}" />
+            {% endif %}
+          </div>
+        </div> {% endcomment %}
+      </div>
     {% endfor %}
-    {% include "pagination.html" %}
+  </div>
+  {% include 'pagination.html' %}
 {% endblock %}

@@ -1,55 +1,8 @@
-{% extends 'base.html' %}
-
-{% block title %}
-   @{{ post.user.username }} | Post - {{ post.id }}
-   {{ block.super }}
-{% endblock %}
-
 {% load static %}
-
-{% block container %}
-    <div class="row justify-content-center">
-        {% if post.photo %}
-        <div class="col-lg-6 p-0">
-            <div class="post-min-container p-4">
-                {% if post.photo %}
-                    <img class="img-fluid mt-1 rounded post-photo" src="{{ post.photo.url }}" alt="Image blog: {{ post.title }}">
-                {% endif %}
-            </div>
-        </div>
-        {% endif %}
-        <div class="{% if post.photo %}col-lg-4 {% else %}col-lg-5 {% endif %} p-0">
-            <div class="post-min-container p-4">
-                <div class="user-banner d-flex align-items-center">
-                    <a href="{% url 'users:profile' post.user.username %}" class="profile-picture user-picture">
-                        <div class="embed-responsive embed-responsive-1by1">
-                            {% if post.profile.picture %}
-                                <img class="rounded-circle embed-responsive-item rounded-circle" src="{{ post.profile.picture.url }}" alt="Picture profile of {{ post.user }}">
-                            {% else %}
-                                <img class="rounded-circle embed-responsive-item rounded-circle" src="{% static 'img/user_logo.png' %}" alt="Picture profile of {{ post.user }}">
-                            {% endif %}
-                        </div>
-                    </a>
-                    <div class="data-post ml-2">
-                        <h4 class="" >
-                            {{ post.user.username }}
-                        </h4>
-                        <span>{{ post.created }}</span>
-                    </div>
-                </div>
-                {% if post.title %}
-                    <h5 class="mt-2 mb-0">
-                        {{ post.title }}
-                    </h5>
-                    <p class="mb-0">
-                        {{ post.content_text }}
-                    </p>
-                {% else %}
-                    <p class="mt-1 mb-0">
-                        {{ post.content_text }}
-                    </p>
-                {% endif %}
-            </div>
-        </div>
-    </div>
-{% endblock %}
+<div class="post-min-container">
+  <a href="{% url 'posts:post' post.user.username post.id %}" class="content-post-url"></a>
+  {% include "posts/post-content.html" with post=post classes="px-4 pt-4 pb-1" %}
+  {% if post.photo %}
+    <img class="img-fluid mt-1 rounded post-photo" src="{{ post.photo.url }}" alt="Image blog: {{ post.title }}" />
+  {% endif %}
+</div>

@@ -19,7 +19,7 @@ class PostsFeedView(LoginRequiredMixin, ListView):
 
 class PostDetailView(LoginRequiredMixin, DetailView):
     """ Detail view for a post"""
-    template_name='posts/post.html'
+    template_name='posts/post-detail.html'
     slug_field="id"
     slug_url_kwarg="username"
     pk_url_kwarg="id"

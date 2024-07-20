@@ -1,175 +1,96 @@
-body{
+body.colors {
+    --stari-blue-1: #0b1d85;
+    --stari-blue-2: #004dc8;
+    --stari-blue-shadow-1: #98bcff80;
+    --stari-white-1: #fef9ff;
+    --stari-white-shadow-1: #bebebe80;
+    --stari-white-2: #ffffff;
+    --stari-white-shadow-2: #2c2d2ca6;
+    --stari-white-3: #fff2fc;
+    --stari-white-shadow-3: #523f4ba6;
+    --stari-black-1: #2f2329;
+    --stari-gray-1: #5c3549;
+}
+
+body.concepts {
+    --stari-main-gradient-color-1: var(--stari-blue-1);
+    --stari-main-gradient-color-2: var(--stari-blue-2);
+    --stari-main-text-color: var(--stari-black-1);
+    --stari-secondary-text-color: var(--stari-gray-1);
+    --stari-main-bg-color: var(--stari-white-1);
+    --stari-main-shadow-color: var(--stari-white-shadow-1);
+    --stari-secondary-bg-color: var(--stari-white-2);
+    --stari-secondary-shadow-color: var(--stari-white-shadow-2);
+    --stari-tertiary-bg-color: var(--stari-white-3);
+    --stari-tertiary-shadow-color: var(--stari-white-shadow-3);
+}
+
+body.entities {
+    --stari-header-background: var(--stari-main-gradient);
+    --stari-page-background: var(--stari-main-bg-color);
+    --stari-post-text-1: var(--stari-main-text-color);
+    --stari-post-text-2: var(--stari-secondary-text-color);
+    --stari-post-background: var(--stari-secondary-bg-color);
+}
+
+body {
     margin: 0px;
     padding: 0px;
-    text-align: center;
     font-weight: 400;
+    background-color: var(--stari-main-bg-color);
 }
-
-/* -------------- HEADER ------------- */
-.header{
-    position: fixed;
-    top: 0;
-    padding: 0px 150px;
-    height: 80px;
-    width: 100vw;
-    z-index: 5;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgb(24,23,31);
-    background: linear-gradient(45deg, #0b1d85 55%, #004dc8 100%);
-    box-shadow: 0px 2px 20px 0px #98bcff80;
-}
-.header-padding{
-    height: 80px;
-    margin-bottom: 20px;
-}
-    /* Header-> Profile picture */
-    .header .profile-picture{
-        height: 60px;
-        width: 60px;
-    }
-    .header .profile-picture img{
-        box-shadow: 5px 5px 5px 0px #01093391;
-    }
-    .header .profile-picture-container{
-        overflow: initial;
-    }
-.brand{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    letter-spacing: 2px;
-}
-.brand .brand-element{
-    margin: 0px 10px;
-}
-.brand .image{
-    height: 50px;
-    width: auto;
-    background-color: #ffffff;
-    margin: 0px 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 40px;
-    box-shadow: 0px 3px 15px 2px #98bcff80;
-}
-.brand .image img{
-    height: 40px;
-    width: 40px;
-    margin: 0px 10px;
-}
-.brand h1{
-    font-size: 30px;
-    font-weight: lighter;
-    margin: 0px;
-    color: #ffffff;
-    text-shadow: 0px 5px 10px #cccccc4d;
-}
-
-.navbar ul{
-    list-style: none;
-    padding: 0px 30px;
-    margin: 0px;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Thasadith', sans-serif;
-}
-.navbar li{
-    margin: 0px;
-    height: inherit;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0px 10px;
-}
-.navbar li:hover{
-    background-color: #002a77;
-    box-sizing: border-box;
-    border-radius: 2px 2px 20px 20px;
-    box-shadow: 0px 3px 15px 2px #395f9c80;
-}
-.navbar li a{
-    text-decoration: none;
-    color: #ffffff;
-    font-size: 15px;
-    font-weight: lighter !important;
-}
-.navbar ul a{
-    margin: 0px 15px;
-}
-.navbar ul img.icon{
-    height: 20px;
-    width: 20px;
-    filter: invert(100%);
-}
-
 
 
 /* BOTONES */
-.btn{
+.btn {
     border-radius: 50px 50px 50px 50px;
 }
-.button-icon{
+
+.button-icon {
     height: 20px;
     width: 20px;
     margin: auto;
 }
-.btn-rounded{
-    border-radius: 50%!important;
+
+.btn-rounded {
+    border-radius: 50% !important;
     height: 3em;
     width: 3em;
-    padding: 0!important;
+    padding: 0 !important;
 }
 
-.content{
+.content {
     width: fit-content;
     margin: 0px auto;
     margin-top: 80px;
 }
-
-.post-min-container{
-    margin: 10px;
-    padding: 10px;
-    box-sizing: border-box;
-    box-shadow: 2px 2px 20px -10px #2c2d2ca6;
-    border-radius: 10px;
-    background-color: #ffffff;
+.profile-picture-container{
+    width: 2rem;
+    height: 2rem;
 }
-.post-min-container .content-post-url{
-    color: black;
-}
-.post-min-container .content-post-url:hover{
-    color:black;
-    text-decoration: none!important;
-}
-.post-min-container .content-post{
-    border-radius: 10px;
-}
-.post-min-container .content-post:hover{
-    background-color: #fafafa;
-    filter: brightness(0.98);
-}
-
-.formulary{
-    width: 400px;
+.profile-picture{
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    border-radius: 100rem;
+    object-fit: cover;
+    object-position: center;
 }
 
 /* -------------- UPDATE PROFILE ------------- */
-.container-update-profile .user-data{
+.container-update-profile .user-data {
     background-color: #00beff14;
     border-radius: 10px;
     padding: 20px;
 }
-.container-update-profile .picture-big{
+
+.container-update-profile .picture-big {
     width: 15rem;
     height: 15rem;
 }
-.container-update-profile .profile-picture .hover-img{
+
+.container-update-profile .profile-picture .hover-img {
     position: absolute;
     z-index: 5;
     background-color: #010b4260;
@@ -177,118 +98,28 @@ body{
     height: inherit;
     display: none;
 }
-.container-update-profile .profile-picture .custom-file-input{
+
+.container-update-profile .profile-picture .custom-file-input {
     width: 70%;
     height: 4rem;
 }
-.container-update-profile .profile-picture .custom-file-label{
+
+.container-update-profile .profile-picture .custom-file-label {
     width: 70%;
     height: 4rem;
     bottom: 0;
     background: none;
     border: none;
-    margin: auto; 
+    margin: auto;
     color: #ffffff;
     padding: 0;
     text-align: center;
 }
-.container-update-profile .profile-picture .custom-file-label::after{
+
+.container-update-profile .profile-picture .custom-file-label::after {
     background-color: #0464ff;
     color: #ffffff;
     position: unset;
     border-radius: 10px;
     margin-top: 2px;
-}
-
-.post-title{
-    font-size: 30px;
-    font-weight: 700;
-    color: rgb(22, 22, 22);
-}
-.user-picture{
-    width: 80px;
-    height: 80px;
-}
-.post-photo{
-    width: 100%;
-}
-
-/* -------------- FOOTER --------------- */
-.footer{
-    position: fixed;
-    bottom: 0;
-    width: 100vw;
-    box-sizing: border-box;
-    margin-top: 30px;
-    padding: 30px 80px;
-    height: auto;
-    display: flex;
-    justify-content: space-evenly;
-    background-color: #28332b;
-    color: #ffffff;
-    box-shadow: 0px -2px 20px 0px #28332bca;
-}
-.footer ul{
-    list-style: none;
-    padding: 0px;
-}
-.footer .footer-content{
-    width: inherit;
-    display: flex;
-    justify-content: space-evenly;
-}
-.footer a{
-    text-decoration: none;
-    color: #ffffff;
-}
-.footer h1{
-    line-height: 25px;
-    padding: 0px;
-    margin: 0px;
-    font-family: 'Permanent Marker', cursive;
-}
-.footer a.creator{
-    color: #6cd48b;
-}
-.footer p{
-    margin: 0px;
-    margin-top: 10px;
-    font-size: 12px;
-}
-.footer a.creator p{
-    font-size: 15px;
-    line-height: 15px;
-    margin: 0px;
-    margin-bottom: 3px;
-}
-.footer h3{
-    margin-top: 0px;
-}
-.footer li{
-    margin-bottom: 5px;
-    display: flex;
-    justify-content: center;
-}
-.footer .redes{
-    box-sizing: border-box;
-    margin-top: 10px;
-}
-.footer .redes h4{
-    margin: 0px;
-}
-.footer .redes ul{
-    display: flex;
-    justify-content: center;
-}
-.footer .redes ul img{
-    width: 60px;
-}
-
-
-@media (max-width: 576px) {
-    .create-post{
-        margin: 0;
-        border-radius: 0px;
-        box-shadow: none;
-    }
 }

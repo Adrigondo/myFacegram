@@ -1,84 +1,60 @@
-{% comment %} <footer>
-    <div class="footer">
-        <div class="element-footer">
-            <a href="#" class="creator">
-                <p>
-                    Site created by
-                </p>
-                <h1>Adrigondo</h1> 
-            </a>
-            <p>
-                Copyright is applied in the site
-            </p>
-        </div>
-        <div class="element-footer">
-            <h3>Navegar</h3>
-            <ul>
-                <li>
-                    <a href="#">
-                        Home
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        Meme
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        Videos
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="element-footer">
-            <h3>Acerca de nosotros</h3>
-            <ul>
-                <li>
-                    <a href="#">
-                        ¿Quíenes somos?
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        Envíanos un correo
-                    </a>
-                </li>
-                <li>
-                    <div class="redes">
-                        <h4>
-                            Nuestras redes
-                        </h4>
-                        <ul>
-                            <li>
-                                <a href="#" class="red facebook">
-                                    <img src="https://i.imgur.com/vAWFbXI.png" title="Facebook-logo source: imgur.com" alt="Facebook-logo source: imgur.com"/>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="red github">
-                                    <img src="https://i.imgur.com/IlsMnqX.png" title="Github-logo source: imgur.com" alt="Github-logo source: imgur.com"/>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div class="element-footer">
-            <h3>Documentos</h3>
-            <ul>
-                <li>
-                    <a href="#">
-                        Terminos y condiciones
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        Politicas de privacidad
-                    </a>
-                </li>
-            </ul>
-        </div>
+{% load static %}
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}" />
+{% endblock %}
+<footer>
+  <div class="footer">
+    <div class="element-footer">
+      <h5 class="m-0"><a href="https://github.com/stariluz" target="_blank" class="creator">A site of Stariluz.</a></h5>
     </div>
-</footer> {% endcomment %}
+    {% comment %} <div class="element-footer">
+      <h3>Navegar</h3>
+      <ul>
+        <li>
+          <a href="#">Home</a>
+        </li>
+        <li>
+          <a href="#">Meme</a>
+        </li>
+        <li>
+          <a href="#">Videos</a>
+        </li>
+      </ul>
+    </div>
+    <div class="element-footer">
+      <h3>Acerca de nosotros</h3>
+      <ul>
+        <li>
+          <a href="#">¿Quíenes somos?</a>
+        </li>
+        <li>
+          <a href="#">Envíanos un correo</a>
+        </li>
+        <li>
+          <div class="redes">
+            <h4>Nuestras redes</h4>
+            <ul>
+              <li>
+                <a href="#" class="red facebook"><img src="https://i.imgur.com/vAWFbXI.png" title="Facebook-logo source: imgur.com" alt="Facebook-logo source: imgur.com" /></a>
+              </li>
+              <li>
+                <a href="#" class="red github"><img src="https://i.imgur.com/IlsMnqX.png" title="Github-logo source: imgur.com" alt="Github-logo source: imgur.com" /></a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="element-footer">
+      <h3>Documentos</h3>
+      <ul>
+        <li>
+          <a href="#">Terminos y condiciones</a>
+        </li>
+        <li>
+          <a href="#">Politicas de privacidad</a>
+        </li>
+      </ul>
+    </div> {% endcomment %}
+  </div>
+</footer>
