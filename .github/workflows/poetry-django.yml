@@ -44,4 +44,4 @@ jobs:
         AWS_DB_PASSWORD: ${{ secrets.AWS_DB_PASSWORD }}
         AWS_DB_HOST: ${{ secrets.AWS_DB_HOST }}
         AWS_DB_PORT: ${{ secrets.AWS_DB_PORT }}
-      run: poetry run python manage.py collectstatic
+      run: poetry run python manage.py collectstatic --noinput
