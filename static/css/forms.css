@@ -1,3 +1,8 @@
+
+.formulary {
+  width: 400px;
+}
+
 .square-image img {
   min-width: 100%;
   width: 100%;
@@ -45,4 +50,11 @@
 .create-post .form-control.post-content[contenteditable]:empty::before {
   content: "Write anything you want...";
   color: gray;
+}
+@media (max-width: 576px) {
+    .create-post {
+        margin: 0;
+        border-radius: 0px;
+        box-shadow: none;
+    }
 }
