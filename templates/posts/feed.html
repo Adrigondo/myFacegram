@@ -12,8 +12,8 @@
     {% for post in posts %}
       <div class="col-lg-6">
         {% include 'posts/post.html' with post=post %}
-        {% comment %} <div class="post-min-container p-4">
-          <a href="{% url 'posts:post' post.user.username post.id %}" class="content-post-url"></a>
+        {% comment %} <div class="post p-4">
+          <a href="{% url 'posts:post' post.user.username post.id %}" class="post-url"></a>
           <div class="post-header d-flex align-items-center">
             <a href="{% url 'users:profile' post.user.username %}" class="profile-picture user-picture">
               <div class="embed-responsive embed-responsive-1by1">

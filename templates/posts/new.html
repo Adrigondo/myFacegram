@@ -13,7 +13,7 @@
   {% endblock %}
   {% comment %}TODO Add breadcrumb navigation{% endcomment %}
   <div class="row justify-content-center">
-    <div class="col-lg-6 post-min-container create-post p-4">
+    <div class="col-lg-6 post create-post p-4">
       {% include "posts/post-header.html" with user=user profile=profile created=created %}
       <form action="{% url 'posts:create' %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
