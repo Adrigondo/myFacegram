@@ -1,6 +1,6 @@
 {% load static %}
-<div class="post-min-container">
-  <a href="{% url 'posts:post' post.user.username post.id %}" class="content-post-url"></a>
+<div class="post">
+  <a href="{% url 'posts:post' post.user.username post.id %}" class="post-url"></a>
   {% include "posts/post-content.html" with post=post classes="px-4 pt-4 pb-1" %}
   {% if post.photo %}
     <img class="img-fluid mt-1 rounded post-photo" src="{{ post.photo.url }}" alt="Image blog: {{ post.title }}" />

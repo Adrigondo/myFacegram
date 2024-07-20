@@ -1,5 +1,5 @@
-.post-min-container {
-    margin: 10px;
+.post {
+    margin: 0.5rem;
     padding: 0px;
     box-sizing: border-box;
     box-shadow: 0px 0px 6px -5px var(--stari-secondary-shadow-color);
@@ -11,7 +11,7 @@
     height: fit-content;
 }
 
-.post-min-container .content-post-url {
+.post .post-url {
     color: var(--stari-post-text);
     position: absolute;
     left: 0;
@@ -20,16 +20,16 @@
     right: 0;
 }
 
-.post-min-container .content-post-url:hover {
+.post .post-url:hover {
     color: var(--stari-post-text);
     text-decoration: none;
 }
 
-/* .post-min-container .content-post {
+/* .post .content-post {
     border-radius: 10px;
 } */
 
-.post-min-container:hover {
+.post:has(.post-url:hover) {
     background-color: var(--stari-tertiary-bg-color);
     transform: scale(1.005);
     filter: brightness(0.95);

@@ -6,8 +6,11 @@
 
 {% load static %}
 
-{% block container %}
-  <div class="container-update-profile">
+{% block content %}
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/posts/posts-grid.css' %}" />
+{% endblock %}
+  <div class="container container-update-profile">
     <div class="row">
       <div class="col col-lg-8 offset-lg-2">
         <div class="user-data d-flex">
@@ -54,10 +57,20 @@
         </div>
       </div>
     </div>
-    <div class="row row-cols-1 row-cols-md-3 justify-content-center">
-      {% for post in posts %}
-        {% include 'posts/post.html' with post=post %}
-      {% endfor %}
-    </div>
   </div>
+  <div class="container">
+    <section class="posts-grid">
+      {% for post in posts %}
+        <article class="post-container">
+          {% include 'posts/post.html' with post=post %}
+        </article>
+      {% endfor %}
+    </section>
+  </div>
+{% endblock %}
+
+{% block script %}
+  {{ block.super }}
+  <script src="{% static 'js/modules/masonry.pkgd.min.js' %}"></script>
+  <script src="{% static 'js/posts/masonry.js' %}"></script>
 {% endblock %}

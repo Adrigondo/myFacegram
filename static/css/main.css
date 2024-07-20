@@ -40,11 +40,11 @@ body {
     background-color: var(--stari-main-bg-color);
 }
 
+.container{
+    max-width: 968px;
+}
 
 /* BOTONES */
-.btn {
-    border-radius: 50px 50px 50px 50px;
-}
 
 .button-icon {
     height: 20px;

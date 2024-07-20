@@ -7,76 +7,19 @@
 
 {% load static %}
 
-{% block container %}
+{% block content %}
   {% block css %}
+    <link rel="stylesheet" href="{% static 'css/posts/new.css' %}" />
     <link rel="stylesheet" href="{% static 'css/drag_and_drop.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/posts/posts-grid.css' %}" />
   {% endblock %}
   {% comment %}TODO Add breadcrumb navigation{% endcomment %}
-  <div class="row justify-content-center">
-    <div class="col-lg-6 post-min-container create-post p-4">
-      {% include "posts/post-header.html" with user=user profile=profile created=created %}
-      <form action="{% url 'posts:create' %}" method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <input type="hidden" name="user" value="{{ user.pk }}" />
-        <input type="hidden" name="profile" value="{{ profile.pk }}" />
-        <div class="form-group">
-          <h2 class="post-title form-control {% if form.title.errors %} is-invalid {% endif %}" id="title__editable" role="textbox" contenteditable>{% if form.errors %}{{ form.title.value }}{% endif %}</h2>
-          <textarea hidden name="title" id="title"></textarea>
-          <div class="invalid-feedback">
-            {% for error in form.title.errors %}
-              {{ error }}
-            {% endfor %}
-          </div>
-          <p class="post-content form-control {% if form.title.errors %} is-invalid {% endif %}" id="content_text__editable" role="textbox" contenteditable>{% if form.errors %}{{ form.title.value }}{% endif %}</p>
-          <textarea hidden name="content_text" id="content_text"></textarea>
-          <div class="invalid-feedback">
-            {% for error in form.content_text.errors %}
-              {{ error }}
-            {% endfor %}
-          </div>
-        </div>
-        <div class="form-group">
-          <span class="btn btn-image btn-file square-image cursor-pointer p-0">
-            <input onchange="onImageSelected(event)" type="file" placeholder="Imagen" id="photo" aria-describedby="photo" name="photo" class="form-control" required />
-            {% comment %} <div class="dropzone" id="drop_zone" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">
-              <p>Arrastra aqui una imagen.</p>
-            </div> {% endcomment %}
-            <div for="photo" class="dropzone">
-              <img src="{% static 'img/Photo_01.png' %}"/>
-              <span class="content-text">Arrastra aqui una imagen.</span>
-            </div>
-            <img alt="Imagen del evaluado" class="image-preview img-fluid w-100 h-100" id="image-preview" />
-          </span>
-          {% comment %} {% if form.photo.errors %}
-            {% if invalidPhoto.type %}
-              <div class="invalid-feedback">* El tipo de archivo no es válido.</div>
-            {% endif %}
-            {% if invalidPhoto.size %}
-              <div class="invalid-feedback">* El tamaño de la imagen debe ser menor a 1MB.</div>
-            {% endif %}
-          {% endif %} {% endcomment %}
-        </div>
-        {% comment %} <div class="form-group">
-          <div class="row">
-            <div class="input-group col col-md-8">
-              <div class="custom-file">
-                <input type="file" class="custom-file-input
-                          {% if form.photo.errors %}
-                              is-invalid
-                          {% endif %}
-                          " id="photo" aria-describedby="photo" name="photo" onchange="updatePhotoLoaded('photo')" />
-                <label class="custom-file-label" id="photo-label">Select a file...</label>
-              </div>
-            </div>
-            <div class="invalid-feedback">
-              {% for error in form.photo.errors %}
-                {{ error }}
-              {% endfor %}
-            </div>
-          </div>
-        </div> {% endcomment %}
-        <div class="form-group">
-          <div class="mb-3 d-flex justify-content-end">
+  <div class="container">
+    <form action="{% url 'posts:create' %}" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="posts-grid">
+        <div class="post-container">
+          <div class="post-controls">
             <button class="btn btn-primary btn-rounded" type="submit" name="create_post">
               <div class="d-flex justify-content-center align-items-center">
                 <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-upload" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -86,9 +29,49 @@
               </div>
             </button>
           </div>
+          <div class="post create-post">
+            <div class="post-content px-4 pt-4 pb-1">
+              {% include 'posts/post-header.html' with user=user profile=profile created=created %}
+              <input type="hidden" name="user" value="{{ user.pk }}" />
+              <input type="hidden" name="profile" value="{{ profile.pk }}" />
+              <div class="form-group">
+                <h2 class="post-title form-control {% if form.title.errors %} is-invalid {% endif %}" id="title__editable" role="textbox" contenteditable>{% if form.errors %}{{ form.title.value }}{% endif %}</h2>
+                <textarea hidden name="title" id="title"></textarea>
+                <div class="invalid-feedback">
+                  {% for error in form.title.errors %}
+                    {{ error }}
+                  {% endfor %}
+                </div>
+                <span class="post-content form-control {% if form.content_text.errors %} is-invalid {% endif %}" id="content_text__editable" role="textbox" contenteditable>{% if form.errors %}{{ form.title.value }}{% endif %}</span>
+                <textarea hidden name="content_text" id="content_text"></textarea>
+                <div class="invalid-feedback">
+                  {% for error in form.content_text.errors %}
+                    {{ error }}
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+
+            <span class="btn btn-image btn-file square-image cursor-pointer p-0">
+              <input onchange="onImageSelected(event)" type="file" placeholder="Imagen" id="photo" aria-describedby="photo" name="photo" class="form-control" required />
+              <div for="photo" class="dropzone">
+                <img src="{% static 'img/Photo_01.png' %}" />
+                <span class="content-text">Arrastra aqui una imagen.</span>
+              </div>
+              <img alt="Imagen del evaluado" class="image-preview" id="image-preview" />
+            </span>
+            {% if form.photo.errors %}
+              {% if invalidPhoto.type %}
+                <div class="invalid-feedback">* El tipo de archivo no es válido.</div>
+              {% endif %}
+              {% if invalidPhoto.size %}
+                <div class="invalid-feedback">* El tamaño de la imagen debe ser menor a 1MB.</div>
+              {% endif %}
+            {% endif %}
+          </div>
         </div>
-      </form>
-    </div>
+      </div>
+    </form>
   </div>
 {% endblock %}
 {% block script %}
