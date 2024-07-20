@@ -33,7 +33,7 @@ class CreatePostView(LoginRequiredMixin, CreateView):
     def get_context_data(self, **kwargs):
         """Add user and profile to context"""
         context = super().get_context_data(**kwargs)
-        context["current_date"] = datetime.today()
+        context["created"] = datetime.today()
         context["user"] = self.request.user
         context["profile"] = self.request.user.profile
         return context   
