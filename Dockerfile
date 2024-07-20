@@ -9,4 +9,5 @@ RUN python -m pipx run poetry install
 
 EXPOSE 8000
 # CMD sh
-CMD python -m pipx run poetry run python manage.py collectstatic --noinput && python -m pipx run poetry run python manage.py makemigrations --noinput && python -m pipx run poetry run python manage.py migrate --noinput && python -m pipx run poetry run daphne myFacegram.asgi:application -b 0.0.0.0 -p 8000
+RUN python -m pipx run poetry run python manage.py collectstatic --noinput && python -m pipx run poetry run python manage.py makemigrations --noinput && python -m pipx run poetry run python manage.py migrate --noinput
+CMD python -m pipx run poetry run daphne myFacegram.asgi:application -b 0.0.0.0 -p 8000
