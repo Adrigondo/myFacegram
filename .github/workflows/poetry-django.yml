@@ -30,8 +30,18 @@ jobs:
         poetry-preview: false # optional, default is false
         # Poetry version to use, if version is not provided then latest stable version will be used
         poetry-version: 1.8.3 # optional
-          
     - name: Install Dependencies
-      run: |
-        poetry install
-        poetry run python manage.py collectstatic
+      run: poetry install
+    - name: Collect static
+      env:
+        SECRET_KEY: ${{ secrets.SECRET_KEY }}
+        AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_STORAGE_BUCKET_NAME: ${{ secrets.AWS_STORAGE_BUCKET_NAME }}
+        AWS_DB_NAME: ${{ secrets.AWS_DB_NAME }}
+        AWS_DB_USER: ${{ secrets.AWS_DB_USER }}
+        AWS_DB_PASSWORD: ${{ secrets.AWS_DB_PASSWORD }}
+        AWS_DB_HOST: ${{ secrets.AWS_DB_HOST }}
+        AWS_DB_PORT: ${{ secrets.AWS_DB_PORT }}
+      run: poetry run python manage.py collectstatic
