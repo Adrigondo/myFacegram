@@ -1,6 +1,6 @@
 .post-min-container {
     margin: 10px;
-    padding: 10px;
+    padding: 0px;
     box-sizing: border-box;
     box-shadow: 0px 0px 6px -5px var(--stari-secondary-shadow-color);
     border-radius: 10px;
@@ -8,6 +8,7 @@
     color: var(--stari-post-text);
     transition: all 0.1s ease;
     position: relative;
+    height: fit-content;
 }
 
 .post-min-container .content-post-url {
@@ -24,14 +25,14 @@
     text-decoration: none;
 }
 
-.post-min-container .content-post {
+/* .post-min-container .content-post {
     border-radius: 10px;
-}
+} */
 
 .post-min-container:hover {
     background-color: var(--stari-tertiary-bg-color);
     transform: scale(1.005);
-    /* filter: brightness(0.98); */
+    filter: brightness(0.95);
 }
 
 .post-title {
@@ -41,4 +42,25 @@
 
 .post-photo {
     width: 100%;
+}
+.post-data{
+    color: var(--stari-post-text-1);
+    display: grid;
+    gap: 0rem;
+    /* align-items: center; */
+}
+.user-banner:hover{
+    text-decoration: none;
+}
+.post-user{
+    margin: 0;
+    font-size: 1rem;
+}
+.post-date{
+    font-size: 0.75rem;
+    color: var(--stari-post-text-2);
+}
+.post-user-picture {
+    width: 2.5rem;
+    height: 2.5rem;
 }

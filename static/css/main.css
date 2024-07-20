@@ -6,15 +6,17 @@ body.colors {
     --stari-white-shadow-1: #bebebe80;
     --stari-white-2: #ffffff;
     --stari-white-shadow-2: #2c2d2ca6;
-    --stari-white-3: #ffe7f9;
+    --stari-white-3: #fff2fc;
     --stari-white-shadow-3: #523f4ba6;
     --stari-black-1: #2f2329;
+    --stari-gray-1: #5c3549;
 }
 
 body.concepts {
     --stari-main-gradient-color-1: var(--stari-blue-1);
     --stari-main-gradient-color-2: var(--stari-blue-2);
     --stari-main-text-color: var(--stari-black-1);
+    --stari-secondary-text-color: var(--stari-gray-1);
     --stari-main-bg-color: var(--stari-white-1);
     --stari-main-shadow-color: var(--stari-white-shadow-1);
     --stari-secondary-bg-color: var(--stari-white-2);
@@ -26,7 +28,8 @@ body.concepts {
 body.entities {
     --stari-header-background: var(--stari-main-gradient);
     --stari-page-background: var(--stari-main-bg-color);
-    --stari-post-text: var(--stari-main-text-color);
+    --stari-post-text-1: var(--stari-main-text-color);
+    --stari-post-text-2: var(--stari-secondary-text-color);
     --stari-post-background: var(--stari-secondary-bg-color);
 }
 
@@ -61,7 +64,19 @@ body {
     margin: 0px auto;
     margin-top: 80px;
 }
-
+.profile-picture-container{
+    width: 2rem;
+    height: 2rem;
+}
+.profile-picture{
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    border-radius: 100rem;
+    object-fit: cover;
+    object-position: center;
+}
 
 /* -------------- UPDATE PROFILE ------------- */
 .container-update-profile .user-data {
@@ -107,9 +122,4 @@ body {
     position: unset;
     border-radius: 10px;
     margin-top: 2px;
-}
-
-.user-picture {
-    width: 80px;
-    height: 80px;
 }

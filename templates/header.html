@@ -6,9 +6,9 @@
     <div class="header">
         <div class="navbar">
             <ul>
-                <a href="{% url 'users:profile' request.user.username %}" class="profile-picture">
-                    <div class="profile-picture-container embed-responsive embed-responsive-1by1">
-                        <img src="{% if request.user.profile.picture %}{{ request.user.profile.picture.url }}{% else %}{% static 'img/user_logo.png' %}{% endif %}" alt="profile-picture" class="embed-responsive-item rounded-circle img-fluid">
+                <a href="{% url 'users:profile' request.user.username %}">
+                    <div class="profile-picture-container">
+                        <img src="{% if request.user.profile.picture %}{{ request.user.profile.picture.url }}{% else %}{% static 'img/user_logo.png' %}{% endif %}" alt="profile-picture" class="profile-picture rounded-circle">
                     </div>
                 </a>
                 <a href="{% url 'posts:create' %}">

@@ -21,7 +21,7 @@
 }
 
 /* Header-> Profile picture */
-.header .profile-picture {
+.header .profile-picture-container {
     height: 60px;
     width: 60px;
 }

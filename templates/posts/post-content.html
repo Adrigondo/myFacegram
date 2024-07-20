@@ -1,0 +1,27 @@
+{% load static %}
+<div class="post-content
+  {% if classes %}
+    {{ classes }}
+  {% else %}
+    'px-4 py-4'
+  {% endif %} ">
+  <a href="{% url 'users:profile' post.user.username %}" class="user-banner d-flex align-items-center">
+    <div class="profile-picture-container post-user-picture">
+      {% if post.profile.picture %}
+        <img class="profile-picture rounded-circle" src="{{ post.profile.picture.url }}" alt="Picture profile of {{ post.user }}" />
+      {% else %}
+        <img class="profile-picture rounded-circle" src="{% static 'img/user_logo.png' %}" alt="Picture profile of {{ post.user }}" />
+      {% endif %}
+    </div>
+    <div class="post-data ml-2">
+      <h3 class="post-user">{{ post.user }}</h3>
+      <span class="post-date">{{ post.created }}</span>
+    </div>
+  </a>
+  {% if post.title %}
+    <h2 class="post-title mt-2 mb-0">{{ post.title }}</h2>
+    <p class="mb-0">{{ post.content_text }}</p>
+  {% else %}
+    <p class="mt-1 mb-0">{{ post.content_text }}</p>
+  {% endif %}
+</div>

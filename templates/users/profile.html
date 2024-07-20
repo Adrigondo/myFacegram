@@ -2,100 +2,62 @@
 
 {% block title %}
   @{{ user.username }} | Profile {{ block.super }}
-{% endblock title %}
-
+{% endblock %}
 
 {% load static %}
 
 {% block container %}
   <div class="container-update-profile">
-      <div class="row">
-        <div class="col col-lg-8 offset-lg-2">
-          <div class="user-data d-flex">
-            <div class="row">
-              <div class="col-10 col-md-6 photo-name">
-                <div class="profile-picture picture-big m-auto">
-                  <div class="embed-responsive embed-responsive-1by1">
-                    <img src="{% if user.profile.picture %}{{ user.profile.picture.url }}{% else %}{% static 'img/user_logo.png' %}{% endif %}" alt="{{ user.first_name }}" class="embed-responsive-item rounded-circle" id="profile-picture-{{user.pk}}" >
-                  </div>
-                </div>
-                <div class="text-center">
-                  <h2>@{{ user.username }}</h2>
-                  <h3>{{ user.first_name }} {{ user.last_name }}</h3>
-                </div>
-                <div class="d-flex justify-content-end">
-                  {% if user == request.user %}
-                    <a href="{% url "users:update_profile" %}" class="btn btn-outline-info">
-                      Edit profile
-                    </a>
+    <div class="row">
+      <div class="col col-lg-8 offset-lg-2">
+        <div class="user-data d-flex">
+          <div class="row">
+            <div class="col-10 col-md-6 photo-name">
+              <div class="profile-picture-container picture-big m-auto">
+                <img src="{% if user.profile.picture %}
+                    {{ user.profile.picture.url }}
                   {% else %}
-                    <a href="" class="btn btn-outline-primary">
-                      Follow
-                    </a>
-                  {% endif %}
-                </div>
+                    {% static 'img/user_logo.png' %}
+                  {% endif %}"
+                  alt="{{ user.first_name }}"
+                  class="profile-picture rounded-circle"
+                  id="profile-picture-{{ user.pk }}" />
               </div>
-              <div class="col-10 col-md-6 description text-left">
-                <h4 class="mb-4">About {{ user.first_name }} {{ user.last_name }}...</h4>
-                <h6 class="d-inline">Email: </h6>
-                <label>{{ user.email  }}</label>
-                <br>
-                <h6 class="d-inline">Birthday: </h6>
-                <label>{{ user.profile.birthday  }}/{{ user.profile.birthmonth  }}/{{ user.profile.birthyear  }}</label>
-                <br>
-                <h6 class="d-inline">Phone number: </h6>
-                <label>{{ user.profile.phone_number  }}</label>
-                <br>
-                <h6 class="d-inline">Description: </h6>
-                <label>{{ user.profile.description  }}</label>
-                <br>
+              <div class="text-center">
+                <h2>@{{ user.username }}</h2>
+                <h3>{{ user.first_name }} {{ user.last_name }}</h3>
               </div>
+              <div class="d-flex justify-content-end">
+                {% if user == request.user %}
+                  <a href="{% url 'users:update_profile' %}" class="btn btn-outline-info">Edit profile</a>
+                {% else %}
+                  <a href="" class="btn btn-outline-primary">Follow</a>
+                {% endif %}
+              </div>
+            </div>
+            <div class="col-10 col-md-6 description text-left">
+              <h4 class="mb-4">About {{ user.first_name }} {{ user.last_name }}...</h4>
+              <h6 class="d-inline">Email:</h6>
+              <label>{{ user.email }}</label>
+              <br />
+              <h6 class="d-inline">Birthday:</h6>
+              <label>{{ user.profile.birthday }}/{{ user.profile.birthmonth }}/{{ user.profile.birthyear }}</label>
+              <br />
+              <h6 class="d-inline">Phone number:</h6>
+              <label>{{ user.profile.phone_number }}</label>
+              <br />
+              <h6 class="d-inline">Description:</h6>
+              <label>{{ user.profile.description }}</label>
+              <br />
             </div>
           </div>
         </div>
       </div>
-      <div class="row row-cols-1 row-cols-md-3 justify-content-center">
-        {% for post in posts %}
-          <div class="col p-0">
-            <div class="card post-min-container p-4">
-              <div class="user-banner d-flex align-items-center">
-                <a href="{% url 'users:profile' post.user.username %}" class="profile-picture user-picture">
-                  <div class="embed-responsive embed-responsive-1by1">
-                    {% if post.profile.picture %}
-                      <img class="rounded-circle embed-responsive-item rounded-circle" src="{{ post.profile.picture.url }}" alt="Picture profile of {{ post.user }}">
-                    {% else %}
-                      <img class="rounded-circle embed-responsive-item rounded-circle" src="{% static 'img/user_logo.png' %}" alt="Picture profile of {{ post.user }}">
-                    {% endif %}
-                  </div>
-                </a>
-                <div class="data-post ml-2">
-                  <h4 class="" >{{ post.user }}</h4>
-                  <span>{{ post.created }}</span>
-                </div>
-              </div>
-              <a href="{% url 'posts:post' post.user.username post.id %}" class="content-post-url">
-                <div class="content-post">
-                  {% if post.title %}
-                      <h5 class="mt-2 mb-0">
-                          {{ post.title }}
-                      </h5>
-                      <p class="mb-0">
-                          {{ post.content_text }}
-                      </p>
-                  {% else %}
-                      <p class="mt-1 mb-0">
-                          {{ post.content_text }}
-                      </p>
-                  {% endif %}
-
-                  {% if post.photo %}
-                      <img class="img-fluid mt-1 rounded post-photo" src="{{ post.photo.url }}" alt="Image blog: {{ post.title }}">
-                  {% endif %}
-                </div>
-              </a>
-            </div>
-          </div>
-        {% endfor %}
-      </div>
+    </div>
+    <div class="row row-cols-1 row-cols-md-3 justify-content-center">
+      {% for post in posts %}
+        {% include 'posts/post.html' with post=post %}
+      {% endfor %}
+    </div>
   </div>
-{% endblock container %}
+{% endblock %}
