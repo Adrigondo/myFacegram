@@ -7,43 +7,53 @@
 
 {% load static %}
 
-{% block container %}
-  <div class="row justify-content-center">
-    {% for post in posts %}
-      <div class="col-lg-6">
-        {% include 'posts/post.html' with post=post %}
-        {% comment %} <div class="post p-4">
-          <a href="{% url 'posts:post' post.user.username post.id %}" class="post-url"></a>
-          <div class="post-header d-flex align-items-center">
-            <a href="{% url 'users:profile' post.user.username %}" class="profile-picture user-picture">
-              <div class="embed-responsive embed-responsive-1by1">
-                {% if post.profile.picture %}
-                  <img class="rounded-circle embed-responsive-item rounded-circle" src="{{ post.profile.picture.url }}" alt="Picture profile of {{ post.user }}" />
-                {% else %}
-                  <img class="rounded-circle embed-responsive-item rounded-circle" src="{% static 'img/user_logo.png' %}" alt="Picture profile of {{ post.user }}" />
-                {% endif %}
+{% block content %}
+  <div class="container">
+    {% block css %}
+      <link rel="stylesheet" href="{% static 'css/posts/posts-grid.css' %}" />
+    {% endblock %}
+    <div class="posts-grid">
+      {% for post in posts %}
+        <div class="post-container">
+          {% include 'posts/post.html' with post=post %}
+          {% comment %} <div class="post p-4">
+            <a href="{% url 'posts:post' post.user.username post.id %}" class="post-url"></a>
+            <div class="post-header d-flex align-items-center">
+              <a href="{% url 'users:profile' post.user.username %}" class="profile-picture user-picture">
+                <div class="embed-responsive embed-responsive-1by1">
+                  {% if post.profile.picture %}
+                    <img class="rounded-circle embed-responsive-item rounded-circle" src="{{ post.profile.picture.url }}" alt="Picture profile of {{ post.user }}" />
+                  {% else %}
+                    <img class="rounded-circle embed-responsive-item rounded-circle" src="{% static 'img/user_logo.png' %}" alt="Picture profile of {{ post.user }}" />
+                  {% endif %}
+                </div>
+              </a>
+              <div class="post-data ml-2">
+                <h4 class="">{{ post.user }}</h4>
+                <span>{{ post.created }}</span>
               </div>
-            </a>
-            <div class="post-data ml-2">
-              <h4 class="">{{ post.user }}</h4>
-              <span>{{ post.created }}</span>
             </div>
-          </div>
-          <div class="content-post">
-            {% if post.title %}
-              <h2 class="post-title mt-2 mb-0">{{ post.title }}</h2>
-              <p class="mb-0">{{ post.content_text }}</p>
-            {% else %}
-              <p class="mt-1 mb-0">{{ post.content_text }}</p>
-            {% endif %}
+            <div class="content-post">
+              {% if post.title %}
+                <h2 class="post-title mt-2 mb-0">{{ post.title }}</h2>
+                <p class="mb-0">{{ post.content_text }}</p>
+              {% else %}
+                <p class="mt-1 mb-0">{{ post.content_text }}</p>
+              {% endif %}
 
-            {% if post.photo %}
-              <img class="img-fluid mt-1 rounded post-photo" src="{{ post.photo.url }}" alt="Image blog: {{ post.title }}" />
-            {% endif %}
-          </div>
-        </div> {% endcomment %}
-      </div>
-    {% endfor %}
+              {% if post.photo %}
+                <img class="img-fluid mt-1 rounded post-photo" src="{{ post.photo.url }}" alt="Image blog: {{ post.title }}" />
+              {% endif %}
+            </div>
+          </div> {% endcomment %}
+        </div>
+      {% endfor %}
+    </div>
   </div>
   {% include 'pagination.html' %}
+{% endblock %}
+{% block script %}
+  {{ block.super }}
+  <script src="{% static 'js/modules/masonry.pkgd.min.js' %}"></script>
+  <script src="{% static 'js/posts/masonry.js' %}"></script>
 {% endblock %}

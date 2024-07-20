@@ -7,7 +7,7 @@
 
 {% load static %}
 
-{% block container %}
+{% block content %}
   <div class="container-update-profile">
     <form method="POST" action="{% url 'users:update_profile' %}" enctype="multipart/form-data">
       {% csrf_token %}
@@ -123,7 +123,7 @@
       </div>
     </form>
   </div>
-{% endblock container %}
+{% endblock content %}
 {% block script %}
   {{ block.super }}
   <script src="{% static 'js/label_name.js' %}"></script>

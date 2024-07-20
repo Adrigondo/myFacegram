@@ -40,6 +40,9 @@ body {
     background-color: var(--stari-main-bg-color);
 }
 
+.container{
+    max-width: 968px;
+}
 
 /* BOTONES */
 
