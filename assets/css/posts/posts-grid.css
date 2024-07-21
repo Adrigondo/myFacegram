@@ -1,0 +1,14 @@
+.posts-grid {
+    margin: 0 auto;
+}
+
+.post-container {
+    width: 50%;
+    position: relative;
+}
+
+@media (max-width: 568px) {
+    .post-container {
+        width: 100%;
+    }
+}
