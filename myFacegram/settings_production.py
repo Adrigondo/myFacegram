@@ -161,32 +161,13 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
 
-LOGIN_URL = '/users/login/'
-
 SRF_COOKIE_SECURE=True
+LOGIN_URL = '/users/login/'
 
 # TODO Configure Cache
 
 # Daphne
 ASGI_APPLICATION = "myFacegram.asgi.application"
-
-# Storage
-# STORAGES = {
-#     "default": {
-#         "BACKEND": "storages.backends.s3.S3Storage",
-#         "OPTIONS": {
-#             "bucket_name": os.environ['AWS_STORAGE_BUCKET_NAME'],
-#             "endpoint_url": f"https://{os.environ['AWS_ACCOUNT_ID']}.r2.cloudflarestorage.com",
-#             "access_key": os.environ["AWS_ACCESS_KEY_ID"],
-#             "secret_key": os.environ["AWS_SECRET_ACCESS_KEY"],
-#             "default_acl": "private",
-#             "signature_version": "s3v4",
-#         },
-#     },
-#     "staticfiles": {
-#         "BACKEND": "storages.backends.s3.S3Storage",
-#     },
-# }
 
 AWS_ACCOUNT_ID=os.environ['AWS_ACCOUNT_ID']
 DEFAULT_FILE_STORAGE = "storages.backends.s3.S3Storage"
@@ -196,6 +177,3 @@ AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
 AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
 AWS_DEFAULT_ACL = 'private'
 AWS_S3_SIGNATURE_VERSION='s3v4'
-
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-# MEDIA_URL = f'{AWS_S3_ENDPOINT_URL}/{AWS_STORAGE_BUCKET_NAME}/'

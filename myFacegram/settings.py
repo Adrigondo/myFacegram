@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
 import os
 from pathlib import Path
 
@@ -21,7 +20,8 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '28r4ld+6533pn8%nzwips*z4w%0-ecop=1e-0mm$2rw((1y+b='
+# TODO Implement rotating keys
+SECRET_KEY = os.environ["SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # django
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    #Local apps
+    # Local apps
     'posts',
     'users',
 ]
@@ -83,8 +84,16 @@ WSGI_APPLICATION = 'myFacegram.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.environ['AWS_DB_NAME'],
+        'USER': os.environ['AWS_DB_USER'],
+        'PASSWORD': os.environ['AWS_DB_PASSWORD'],
+        'HOST': os.environ['AWS_DB_HOST'],
+        'PORT': os.environ['AWS_DB_PORT'],
+        'OPTIONS':{
+            'sql_mode': 'STRICT_TRANS_TABLES',
+            # 'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        }
     }
 }
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
@@ -125,6 +134,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 STATIC_URL = '/static/'
 
@@ -137,9 +147,17 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
 
-MEDIA_ROOT = BASE_DIR / 'media'
-
-MEDIA_URL = '/media/'
-
+SRF_COOKIE_SECURE=True
 LOGIN_URL = '/users/login/'
 
+AWS_ACCOUNT_ID=os.environ['AWS_ACCOUNT_ID']
+DEFAULT_FILE_STORAGE = "storages.backends.s3.S3Storage"
+AWS_S3_ENDPOINT_URL = f'https://{AWS_ACCOUNT_ID}.r2.cloudflarestorage.com'
+AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
+AWS_DEFAULT_ACL = 'private'
+AWS_S3_SIGNATURE_VERSION='s3v4'
+
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_URL = f'{AWS_S3_ENDPOINT_URL}/{AWS_STORAGE_BUCKET_NAME}/'
