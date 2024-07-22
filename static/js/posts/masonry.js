@@ -1,14 +1,11 @@
 import MiniMasonry from '../modules/minimasonry.js';
 
-var $grid = document.querySelector('.posts-grid');
-// var masonry = new Masonry($grid, {
-//     // Opciones
-//     itemSelector: '.post-container',
-//     columnWidth: '.post-container',
-//     percentPosition: true
-// });
-var masonry = new MiniMasonry({
+const $grid = document.querySelector('.posts-grid');
+const masonry = new MiniMasonry({
     container: $grid,
     baseWidth: 250,
+    gutter: 0, 
     minify: true,
 });
+
+$grid.querySelectorAll('img').forEach((img) => img.addEventListener('load', () => masonry.layout()))
