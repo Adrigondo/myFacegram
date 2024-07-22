@@ -1,11 +1,11 @@
-{% extends 'users/base.html' %}
+{% extends 'users/auth.html' %}
 
 {% block title %}
     Log In | myFacegram
 {% endblock title %}
 
 {% block content %}
-    <div class="container container-sesion">
+    <div class="container auth-container">
         {% for item in errors %}
             {% for error in item %}
                 <div class="alert alert-danger">
@@ -14,13 +14,15 @@
             {% endfor %}
         {% endfor %}
         {% load static %}
-        <img class="" src="{% static 'img/user_logo.png'%}" alt="" width="72" height="72">
-        <h1 class="h1 mb-4">Log in!</h1>
-        {% if error %}
-            <p style="color: red;"> {{ error }}</p>
-        {% endif %}
+        <div class="auth-container-header">
+            <img class="" src="{% static 'img/user_logo.png'%}" alt="" width="72" height="72">
+            <h1 class="auth-title">Log in!</h1>
+        </div>
         <form method="POST" action="{% url 'users:login' %}">
             {% csrf_token %}
+            {% if error %}
+                <p style="color: red;"> {{ error }}</p>
+            {% endif %}
             <div class="form-group">
                 <input class="form-control" type="text" placeholder="Username" name="username">
                 <input class="form-control" type="password" placeholder="Password" name="password">  
