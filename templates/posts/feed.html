@@ -54,6 +54,6 @@
 {% endblock %}
 {% block script %}
   {{ block.super }}
-  <script src="{% static 'js/modules/masonry.pkgd.min.js' %}"></script>
-  <script src="{% static 'js/posts/masonry.js' %}"></script>
+  <script src="{% static 'js/modules/minimasonry.js' %}" type="module"></script>
+  <script src="{% static 'js/posts/masonry.js' %}" type="module"></script>
 {% endblock %}
