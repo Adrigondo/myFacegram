@@ -1,10 +1,11 @@
 .posts-grid {
     margin: 0 auto;
+    position: relative;
 }
 
 .post-container {
     width: 50%;
-    position: relative;
+    position: absolute;
 }
 
 @media (max-width: 568px) {
