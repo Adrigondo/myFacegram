@@ -1,4 +1,4 @@
-{% extends 'users/base.html' %}
+{% extends 'users/auth.html' %}
 
 {% block title %}
     Sign up | myFacegram
@@ -6,7 +6,7 @@
 
 {% load static %}
 {% block content %}
-    <div class="container container-sesion">
+    <div class="container auth-container">
         {% for item in errors %}
             {% for error in item %}
                 <div class="alert alert-danger">
@@ -14,9 +14,10 @@
                 </div>
             {% endfor %}
         {% endfor %}
-        
-        <img class="" src="{% static 'img/user_logo.png'%}" alt="" width="72" height="72">
-        <h1 class="h1 mb-4">Sign up!</h1>
+        <div class="auth-container-header">
+            <img class="" src="{% static 'img/user_logo.png'%}" alt="" width="72" height="72">
+            <h1 class="auth-title">Sign up!</h1>
+        </div>
 
         <form method="POST" action="{% url 'users:signup' %}">
             {% csrf_token %}
