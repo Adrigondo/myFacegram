@@ -30,7 +30,7 @@ jobs:
           ref: 'prod'
 
       - name: Set up Python
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v5
         with:
           python-version: 3.12
 
@@ -58,7 +58,7 @@ jobs:
         run: poetry run python manage.py collectstatic --noinput
 
       - name: Archive static files
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: assets
           path: assets/
@@ -77,7 +77,7 @@ jobs:
           ref: 'prod'
 
       - name: Download static files
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: assets
           path: ./assets
