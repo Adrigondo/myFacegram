@@ -43,23 +43,34 @@
 .post-photo {
     width: 100%;
 }
-.post-data{
+
+.post-data {
     color: var(--stari-post-text-1);
     display: grid;
     gap: 0rem;
     /* align-items: center; */
 }
-.post-header:hover{
+
+.post-header {
     text-decoration: none;
+    color: unset;
 }
-.post-user{
+
+.post-header:hover {
+    text-decoration: none;
+    color: unset;
+}
+
+.post-user {
     margin: 0;
     font-size: 1rem;
 }
-.post-date{
+
+.post-date {
     font-size: 0.75rem;
     color: var(--stari-post-text-2);
 }
+
 .post-user-picture {
     width: 2.5rem;
     height: 2.5rem;

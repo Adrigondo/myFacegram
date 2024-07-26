@@ -1,5 +1,5 @@
 {% load static %}
-<a href="{% url 'users:profile' user.username %}" class="post-header d-flex align-items-center">
+<a href="{% url 'users:profile' user.username %}" class="post-header d-flex align-items-center gap-1">
   <div class="profile-picture-container post-user-picture">
     {% if profile.picture %}
       <img class="profile-picture rounded-circle" src="{{ profile.picture.url }}" alt="Picture profile of {{ user }}" />
