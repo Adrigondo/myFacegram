@@ -1,37 +1,60 @@
 /* -------------- HEADER ------------- */
+img {
+    fill: white;
+}
+
 .header {
     position: fixed;
     top: 0;
-    padding: 0px 150px;
+    /* padding: 0px 150px; */
     height: 80px;
     width: 100vw;
     z-index: 5;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     background: rgb(24, 23, 31);
     background: linear-gradient(45deg, var(--stari-main-gradient-color-1) 55%, var(--stari-main-gradient-color-2) 100%);
     box-shadow: 0px 2px 20px 0px #98bcff80;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
 }
 
 .header-padding {
     height: 80px;
     margin-bottom: 20px;
 }
-
-/* Header-> Profile picture */
+.dropdown-toggle::after{
+    display: none;
+}
 .header .profile-picture-container {
     height: 60px;
     width: 60px;
+    padding: 0;
+    margin: 0;
 }
-
-.header .profile-picture img {
+.header-actions{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+/* .header .profile-picture img {
     box-shadow: 5px 5px 5px 0px #01093391;
-}
+} */
 
 .header .profile-picture-container {
     overflow: initial;
+    background-color: unset;
+    background: unset;
+    outline: none;
+    border: none;
+}
+
+.header .dropdown-toggle:active {
+    outline: none;
+    border: none;
 }
 
 .brand {
@@ -109,8 +132,6 @@
     margin: 0px 15px;
 }
 
-.navbar ul img.icon {
-    height: 20px;
-    width: 20px;
-    filter: invert(100%);
+.icon {
+    --color-fill: #ffffff;
 }
