@@ -3,45 +3,46 @@
   <link rel="stylesheet" href="{% static 'css/header.css' %}" />
 {% endblock %}
 <header class="header">
-  <div class="main-container container header-content">
-    <section class="header-actions">
-      <div class="dropdown">
-        <button class="dropdown-toggle profile-picture-container" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="{% if request.user.profile.picture %}
-              {{ request.user.profile.picture.url }}
-            {% else %}
-              {% static 'img/user_logo.png' %}
-            {% endif %}"
-            alt="profile-picture"
-            class="profile-picture rounded-circle" />
-        </button>
-        <ul class="dropdown-menu">
-          <li>
-            <a class="dropdown-item" href="{% url 'users:profile' request.user.username %}">Ver perfil <img class="icon" src="{% static 'img/user-square-rounded.svg' %}" alt="Profile picture" /></a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="{% url 'users:logout' %}">Cerrar sesion <img class="icon" src="{% static 'img/logout.svg' %}" alt="Logout picture" /></a>
-          </li>
-        </ul>
-      </div>
-      <a href="{% url 'posts:create' %}">
-        <svg height="24" width="24">
-          <use
-          class="icon"
-          href="{% static 'img/square-rounded-plus.svg' %}#icon" 
-          height="24"
-          width="24"
-          ></use>
-        </svg>
-      </a>
-    </section>
-    <div class="brand">
-      <div class="brand-element">
-        <h1>myFacegram</h1>
-      </div>
-      <div class="brand-element">
-        <a href="{% url 'posts:feed' %}"><img src="{% static 'img/instagram.png' %}" height="45" class="d-inline-block align-top" /></a>
+  {% comment %} <navbar class="navbar">
+    {% endcomment %}
+    <div class="header-fixed">
+      <div class="main-container container header-content">
+        <section class="header-actions">
+          <div class="dropdown">
+            <button class="dropdown-toggle profile-picture-container" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="{% if request.user.profile.picture %}
+                  {{ request.user.profile.picture.url }}
+                {% else %}
+                  {% static 'img/user_logo.png' %}
+                {% endif %}"
+                alt="profile-picture"
+                class="profile-picture rounded-circle" />
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" href="{% url 'users:profile' request.user.username %}"><span>Ver perfil</span> <img class="icon" src="{% static 'img/user-square-rounded.svg' %}" alt="Profile picture" /></a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{% url 'users:logout' %}"><span>Cerrar sesion</span> <img class="icon" src="{% static 'img/logout.svg' %}" alt="Logout picture" /></a>
+              </li>
+            </ul>
+          </div>
+          <a href="{% url 'posts:create' %}">
+            <svg height="24" width="24">
+              <use class="icon" href="{% static 'img/square-rounded-plus.svg' %}#icon" height="24" width="24"></use>
+            </svg>
+          </a>
+        </section>
+        <div class="brand">
+          <div class="brand-element">
+            <h1>myFacegram</h1>
+          </div>
+          <div class="brand-element">
+            <a href="{% url 'posts:feed' %}"><img src="{% static 'img/instagram.png' %}" height="45" class="d-inline-block align-top" /></a>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+    {% comment %}
+  </navbar> {% endcomment %}
 </header>
