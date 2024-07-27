@@ -1,33 +1,58 @@
 {% load static %}
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/header.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/header.css' %}" />
 {% endblock %}
-<header>
-    <div class="header">
-        <div class="navbar">
-            <ul>
-                <a href="{% url 'users:profile' request.user.username %}">
-                    <div class="profile-picture-container">
-                        <img src="{% if request.user.profile.picture %}{{ request.user.profile.picture.url }}{% else %}{% static 'img/user_logo.png' %}{% endif %}" alt="profile-picture" class="profile-picture rounded-circle">
-                    </div>
+<header class="header">
+  {% comment %} <navbar class="navbar">
+    {% endcomment %}
+    <div class="header-fixed">
+      <div class="main-container container header-content">
+        <section class="header-actions">
+          <div class="dropdown">
+            <button class="dropdown-toggle profile-picture-container" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="{% if request.user.profile.picture %}
+                  {{ request.user.profile.picture.url }}
+                {% else %}
+                  {% static 'img/user_logo.png' %}
+                {% endif %}"
+                alt="profile-picture"
+                class="profile-picture rounded-circle" />
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" href="{% url 'users:profile' request.user.username %}">
+                  <span>Ver perfil</span>
+                  <svg height="24" width="24">
+                    <use class="icon" href="{% static 'img/user-square-rounded.svg' %}#icon" height="24" width="24"></use>
+                  </svg>
                 </a>
-                <a href="{% url 'posts:create' %}">
-                    <img class="icon" src="{% static 'img/add.png' %}" alt="" >
+              </li>
+              <li>
+                <a class="dropdown-item" href="{% url 'users:logout' %}">
+                  <span>Cerrar sesion</span>
+                  <svg height="24" width="24">
+                    <use class="icon" href="{% static 'img/logout.svg' %}#icon" height="24" width="24"></use>
+                  </svg>
                 </a>
-                <a href="{% url 'users:logout' %}">
-                    <img class="icon" src="{% static 'img/logout.png' %}" alt="">
-                </a>
+              </li>
             </ul>
-        </div>
+          </div>
+          <a href="{% url 'posts:create' %}">
+            <svg height="24" width="24">
+              <use class="icon" href="{% static 'img/square-rounded-plus.svg' %}#icon" height="24" width="24"></use>
+            </svg>
+          </a>
+        </section>
         <div class="brand">
-            <div class="brand-element">
-                <h1>myFacegram</h1>
-            </div>
-            <div class="brand-element">
-                <a href="{% url 'posts:feed' %}">
-                <img src="{% static 'img/instagram.png' %}" height="45" class="d-inline-block align-top"/>
-                </a>
-            </div>
+          <div class="brand-element">
+            <h1>olibri</h1>
+          </div>
+          <div class="brand-element">
+            <a href="{% url 'posts:feed' %}"><img src="{% static 'img/logo.png' %}" height="45" class="d-inline-block align-top" /></a>
+          </div>
         </div>
+      </div>
     </div>
+    {% comment %}
+  </navbar> {% endcomment %}
 </header>
