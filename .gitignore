@@ -2,9 +2,6 @@
 media/*
 environment/
 
-# Secret vars
-environment/
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
