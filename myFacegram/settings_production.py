@@ -152,14 +152,14 @@ USE_TZ = True
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 STATIC_URL = 'https://stariluz.github.io/myFacegram/'
-STATICFILES_DIRS = [
-    (BASE_DIR / 'static'),
-]
+# STATICFILES_DIRS = [
+#     (BASE_DIR / 'static'),
+# ]
 
-STATICFILES_FINDERS = [
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-]
+# STATICFILES_FINDERS = [
+#     'django.contrib.staticfiles.finders.FileSystemFinder',
+#     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+# ]
 
 SRF_COOKIE_SECURE=True
 LOGIN_URL = '/users/login/'

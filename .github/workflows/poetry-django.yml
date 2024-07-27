@@ -55,7 +55,7 @@ jobs:
           AWS_DB_PASSWORD: ${{ secrets.AWS_DB_PASSWORD }}
           AWS_DB_HOST: ${{ secrets.AWS_DB_HOST }}
           AWS_DB_PORT: ${{ secrets.AWS_DB_PORT }}
-        run: poetry run python manage.py collectstatic --noinput
+        run: poetry run python manage.py collectstatic --noinput --clear
 
       - name: Archive static files
         uses: actions/upload-artifact@v4
