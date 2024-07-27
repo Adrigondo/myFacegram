@@ -1,36 +1,52 @@
 body.colors {
-    --stari-blue-1: #0b1d85;
-    --stari-blue-2: #004dc8;
+    --stari-blue-1: #004dc8;
+    --stari-blue-2: #0b1d85;
     --stari-blue-shadow-1: #98bcff80;
+    --stari-pink-1: #ff0077;
+    --stari-pink-2: #bc095d;
+    --stari-pink-shadow-1: #eb147880;
     --stari-white-1: #fef9ff;
-    --stari-white-shadow-1: #bebebe80;
     --stari-white-2: #ffffff;
-    --stari-white-shadow-2: #2c2d2ca6;
     --stari-white-3: #fff2fc;
+    --stari-white-shadow-1: #bebebe80;
+    --stari-white-shadow-2: #2c2d2ca6;
     --stari-white-shadow-3: #523f4ba6;
     --stari-black-1: #2f2329;
     --stari-gray-1: #5c3549;
 }
 
 body.concepts {
-    --stari-main-gradient-color-1: var(--stari-blue-1);
-    --stari-main-gradient-color-2: var(--stari-blue-2);
+    --stari-main-gradient-color-1: var(--stari-pink-1);
+    --stari-main-gradient-color-2: var(--stari-pink-2);
     --stari-main-text-color: var(--stari-black-1);
     --stari-secondary-text-color: var(--stari-gray-1);
+    --stari-tertiary-text-color: var(--stari-white-1);
     --stari-main-bg-color: var(--stari-white-1);
-    --stari-main-shadow-color: var(--stari-white-shadow-1);
     --stari-secondary-bg-color: var(--stari-white-2);
-    --stari-secondary-shadow-color: var(--stari-white-shadow-2);
     --stari-tertiary-bg-color: var(--stari-white-3);
+    --stari-main-shadow-color-1: var(--stari-white-shadow-1);
+    --stari-main-shadow-color-2: var(--stari-pink-shadow-1);
+    --stari-secondary-shadow-color: var(--stari-white-shadow-2);
     --stari-tertiary-shadow-color: var(--stari-white-shadow-3);
 }
 
 body.entities {
-    --stari-header-background: var(--stari-main-gradient);
-    --stari-page-background: var(--stari-main-bg-color);
+    --stari-header-bg-color: var(--stari-main-gradient-color-1);
+    --stari-header-text-color: var(--stari-tertiary-text-color);
+    --stari-header-icons-color: var(--stari-tertiary-text-color);
+    --stari-page-bg-color: var(--stari-main-bg-color);
+    --stari-page-icons-color: var(--stari-main-text-color);
     --stari-post-text-1: var(--stari-main-text-color);
     --stari-post-text-2: var(--stari-secondary-text-color);
-    --stari-post-background: var(--stari-secondary-bg-color);
+    --stari-post-bg-color: var(--stari-secondary-bg-color);
+    --stari-auth-bg-color: var(--stari-main-gradient-color-1);
+    --stari-auth-text-color: var(--stari-tertiary-text-color);
+    --stari-auth-form-bg-color: var(--stari-main-bg-color);
+    --stari-auth-form-shadow-color: var(--stari-main-shadow-color-1);
+    --stari-auth-form-text-color: var(--stari-main-text-color);
+    --stari-auth-form-button-bg-color: var(--stari-main-gradient-color-1);
+    --stari-auth-form-button-hover-bg-color: var(--stari-main-gradient-color-2);
+    --stari-auth-form-button-shadow-color: var(--stari-main-shadow-color-2);
 }
 
 body {
@@ -40,7 +56,7 @@ body {
     background-color: var(--stari-main-bg-color);
 }
 
-.container{
+.container {
     max-width: 968px;
 }
 
@@ -64,11 +80,13 @@ body {
     margin: 0px auto;
     margin-top: 80px;
 }
-.profile-picture-container{
+
+.profile-picture-container {
     width: 2rem;
     height: 2rem;
 }
-.profile-picture{
+
+.profile-picture {
     width: 100%;
     height: 100%;
     min-width: 100%;

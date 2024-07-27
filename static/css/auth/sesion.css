@@ -6,8 +6,8 @@ body {
     margin: 0;
     height: 100%;
     box-sizing: border-box;
-    background: rgb(24, 23, 31);
-    background: linear-gradient(45deg, rgba(24, 23, 31, 1) 0%, rgba(18, 15, 83, 1) 55%, rgba(0, 99, 255, 1) 100%);
+    background: var(--stari-auth-bg-color);
+    background: linear-gradient(45deg, var(--stari-main-gradient-color-2) 55%, var(--stari-main-gradient-color-1) 100%);
 }
 
 .main-container {
@@ -26,8 +26,8 @@ body {
     max-width: 400px;
     padding: 20px 30px;
     box-sizing: border-box;
-    background-color: #ffffff;
-    box-shadow: 2px 2px 20px -5px #2c2d2ca6;
+    background-color:  var(--stari-auth-form-bg-color);
+    box-shadow: 2px 2px 20px -5px var(--stari-auth-form-shadow-color);
     border-radius: 10px;
 }
 
@@ -54,4 +54,21 @@ body {
 
 .btn {
     border-radius: 50px 50px 50px 50px;
+}
+.btn-primary{
+    background-color: var(--stari-auth-form-button-bg-color);
+    border-color:  var(--stari-auth-form-button-bg-color);
+}
+.btn-primary:hover{
+    background-color: var(--stari-auth-form-button-hover-bg-color);
+}
+.btn-primary:not(:disabled):not(.disabled):focus{
+    background-color: var(--stari-auth-form-button-bg-color);
+    box-shadow: 0 0 0 .2rem  var(--stari-auth-form-button-shadow-color);
+}
+.btn-primary:not(:disabled):not(.disabled):active{
+    background-color: var(--stari-auth-form-button-hover-bg-color);
+}
+.btn-primary:not(:disabled):not(.disabled):active:focus{
+    box-shadow: 0 0 0 .2rem  var(--stari-auth-form-button-shadow-color);
 }
