@@ -6,8 +6,8 @@
     height: var(--stari-header-height);
 
     .header-fixed {
-        background: var(--stari-header-background);
-        background: linear-gradient(45deg, var(--stari-main-gradient-color-1) 55%, var(--stari-main-gradient-color-2) 100%);
+        background: var(--stari-header-bg-color);
+        background: linear-gradient(45deg, var(--stari-main-gradient-color-2) 55%, var(--stari-main-gradient-color-1) 100%);
     
         box-shadow: 0px 2px 20px 0px #98bcff80;
         position: fixed;
@@ -67,7 +67,7 @@
     }
 
     .dropdown-item:hover {
-        background: var(--stari-header-background);
+        background: var(--stari-header-bg-color);
         color: var(--stari-header-text-color);
     }
 
@@ -131,6 +131,6 @@
 }
 
 .header:not(:has(.header-fixed)) {
-    background: var(--stari-header-background);
-    background: linear-gradient(45deg, var(--stari-main-gradient-color-1) 55%, var(--stari-main-gradient-color-2) 100%);
+    background: var(--stari-header-bg-color);
+    background: linear-gradient(45deg, var(--stari-main-gradient-color-2) 55%, var(--stari-main-gradient-color-1) 100%);
 }
