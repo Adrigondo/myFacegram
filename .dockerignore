@@ -1,0 +1,7 @@
+.venv
+environment/*
+db.sqlite3
+
+# Assets
+assets/
+static/

@@ -1,79 +1,9 @@
-.btn-file {
-  position: relative;
-  overflow: hidden;
-}
 
-.btn-file input[type="file"] {
-  position: absolute;
-  top: 0;
-  right: 0;
-  min-width: 100%;
-  min-height: 100%;
-  filter: alpha(opacity=0);
-  opacity: 0;
-  outline: none;
-  cursor: inherit;
-  display: block;
+.formulary {
+  width: 400px;
 }
-
-/* .btn-file input[type="file"]:valid {
-  background-color: blue;
-}
-.btn-file input[type="file"]:invalid {
-  background-color: red;
-} */
-.btn-file input[type="file"]:invalid~.dropzone {
-  display: flex;
-}
-
-.btn-file input[type="file"]:valid~.dropzone {
-  display: none;
-}
-
-.btn-file input[type="file"]:invalid~.image-preview {
-  display: none;
-}
-
-.btn-file input[type="file"]:valid~.image-preview {
-  display: block;
-}
-
-.btn-file.btn-image {
-  height: fit-content;
-  display: block;
-}
-
-.square-image img {
-  min-width: 100%;
-  width: 100%;
-  min-height: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  aspect-ratio: 1;
-}
-
-/* 
-  .btn-file.btn-image:before {
-    padding-bottom: 100%;
-    content: '';
-    float: left;
-  }
-  
-  .btn-file.btn-image:after {
-    display: table;
-    content: '';
-    clear: both;
-  } */
 
 /* -------------- CREATE POST ------------- */
-.create-post {
-  /* border-radius: 5px; */
-  /* background-color: #ffffff; */
-  /* box-shadow: 2px 2px 10px 0px #dbdbdb; */
-  /* padding: 1em; */
-  /* margin: 2em; */
-}
 
 .create-post .form-control {
   border: 0px;
@@ -103,4 +33,30 @@
 .create-post .form-control.post-content[contenteditable]:empty::before {
   content: "Write anything you want...";
   color: gray;
+}
+@media (max-width: 576px) {
+    .create-post {
+        margin: 0;
+        border-radius: 0px;
+        box-shadow: none;
+    }
+}
+
+.post-controls{
+  position: absolute;
+  left: 100%;
+  display: grid;
+  grid-template-rows: 1fr;
+  padding-top: 0.5rem;
+}
+
+@media (max-width: 568px) {
+    .post-controls {
+      padding: 0.5rem;
+      position: relative;
+      right: 0%;
+      left: unset;
+      display: flex;
+      justify-content: flex-end;
+    }
 }
