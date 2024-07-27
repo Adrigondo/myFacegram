@@ -23,7 +23,7 @@
                 <a class="dropdown-item" href="{% url 'users:profile' request.user.username %}">
                   <span>Ver perfil</span>
                   <svg height="24" width="24">
-                    <use class="icon" href="{% static 'img/user-square-rounded.svg' %}#icon" height="24" width="24"></use>
+                    <use class="icon" xlink:href="{% static 'img/user-square-rounded.svg' %}#icon" href="{% static 'img/user-square-rounded.svg' %}#icon" height="24" width="24"></use>
                   </svg>
                 </a>
               </li>
@@ -31,7 +31,7 @@
                 <a class="dropdown-item" href="{% url 'users:logout' %}">
                   <span>Cerrar sesion</span>
                   <svg height="24" width="24">
-                    <use class="icon" href="{% static 'img/logout.svg' %}#icon" height="24" width="24"></use>
+                    <use class="icon" href="{% static 'img/logout.svg' %}#icon" xlink:href="{% static 'img/logout.svg' %}#icon" height="24" width="24"></use>
                   </svg>
                 </a>
               </li>
@@ -39,7 +39,7 @@
           </div>
           <a href="{% url 'posts:create' %}">
             <svg height="24" width="24">
-              <use class="icon" href="{% static 'img/square-rounded-plus.svg' %}#icon" height="24" width="24"></use>
+              <use class="icon" href="{% static 'img/square-rounded-plus.svg' %}#icon" xlink:href="{% static 'img/square-rounded-plus.svg' %}#icon" height="24" width="24"></use>
             </svg>
           </a>
         </section>
