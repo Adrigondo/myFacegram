@@ -2,19 +2,22 @@ body.colors {
     --stari-blue-1: #0b1d85;
     --stari-blue-2: #004dc8;
     --stari-blue-shadow-1: #98bcff80;
+    --stari-pink-1: #bc095d;
+    --stari-pink-2: #ff0077;
+    --stari-pink-shadow-1: #eb147880;
     --stari-white-1: #fef9ff;
-    --stari-white-shadow-1: #bebebe80;
     --stari-white-2: #ffffff;
-    --stari-white-shadow-2: #2c2d2ca6;
     --stari-white-3: #fff2fc;
+    --stari-white-shadow-1: #bebebe80;
+    --stari-white-shadow-2: #2c2d2ca6;
     --stari-white-shadow-3: #523f4ba6;
     --stari-black-1: #2f2329;
     --stari-gray-1: #5c3549;
 }
 
 body.concepts {
-    --stari-main-gradient-color-1: var(--stari-blue-1);
-    --stari-main-gradient-color-2: var(--stari-blue-2);
+    --stari-main-gradient-color-1: var(--stari-pink-1);
+    --stari-main-gradient-color-2: var(--stari-pink-2);
     --stari-main-text-color: var(--stari-black-1);
     --stari-secondary-text-color: var(--stari-gray-1);
     --stari-tertiary-text-color: var(--stari-white-1);

@@ -1,15 +1,14 @@
 /* -------------- HEADER ------------- */
 
-body>.header {
+.header {
     --stari-header-height: 80px;
     margin-bottom: 20px;
     height: var(--stari-header-height);
 
-    background: var(--stari-header-background);
-    background: linear-gradient(45deg, var(--stari-main-gradient-color-1) 55%, var(--stari-main-gradient-color-2) 100%);
-
     .header-fixed {
-        background: inherit;
+        background: var(--stari-header-background);
+        background: linear-gradient(45deg, var(--stari-main-gradient-color-1) 55%, var(--stari-main-gradient-color-2) 100%);
+    
         box-shadow: 0px 2px 20px 0px #98bcff80;
         position: fixed;
         top: 0;
@@ -62,13 +61,16 @@ body>.header {
         gap: 0.5rem;
 
     }
+
     .dropdown-item .icon {
         --stari-color-fill: var(--stari-page-icons-color);
     }
+
     .dropdown-item:hover {
         background: var(--stari-header-background);
         color: var(--stari-header-text-color);
     }
+
     .dropdown-item:hover .icon {
         --stari-color-fill: var(--stari-header-icons-color);
     }
@@ -126,4 +128,9 @@ body>.header {
         color: #ffffff;
         text-shadow: 0px 5px 10px #cccccc4d;
     }
+}
+
+.header:not(:has(.header-fixed)) {
+    background: var(--stari-header-background);
+    background: linear-gradient(45deg, var(--stari-main-gradient-color-1) 55%, var(--stari-main-gradient-color-2) 100%);
 }
