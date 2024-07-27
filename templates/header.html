@@ -20,10 +20,20 @@
             </button>
             <ul class="dropdown-menu">
               <li>
-                <a class="dropdown-item" href="{% url 'users:profile' request.user.username %}"><span>Ver perfil</span> <img class="icon" src="{% static 'img/user-square-rounded.svg' %}" alt="Profile picture" /></a>
+                <a class="dropdown-item" href="{% url 'users:profile' request.user.username %}">
+                  <span>Ver perfil</span>
+                  <svg height="24" width="24">
+                    <use class="icon" href="{% static 'img/user-square-rounded.svg' %}#icon" height="24" width="24"></use>
+                  </svg>
+                </a>
               </li>
               <li>
-                <a class="dropdown-item" href="{% url 'users:logout' %}"><span>Cerrar sesion</span> <img class="icon" src="{% static 'img/logout.svg' %}" alt="Logout picture" /></a>
+                <a class="dropdown-item" href="{% url 'users:logout' %}">
+                  <span>Cerrar sesion</span>
+                  <svg height="24" width="24">
+                    <use class="icon" href="{% static 'img/logout.svg' %}#icon" height="24" width="24"></use>
+                  </svg>
+                </a>
               </li>
             </ul>
           </div>

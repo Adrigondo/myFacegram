@@ -56,8 +56,21 @@ body>.header {
         border: none;
     }
 
-    .dropdown .icon {
+    .dropdown-item {
+        display: flex;
+        justify-content: flex-start;
+        gap: 0.5rem;
+
+    }
+    .dropdown-item .icon {
         --stari-color-fill: var(--stari-page-icons-color);
+    }
+    .dropdown-item:hover {
+        background: var(--stari-header-background);
+        color: var(--stari-header-text-color);
+    }
+    .dropdown-item:hover .icon {
+        --stari-color-fill: var(--stari-header-icons-color);
     }
 
     .profile-picture {

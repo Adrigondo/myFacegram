@@ -17,6 +17,7 @@ body.concepts {
     --stari-main-gradient-color-2: var(--stari-blue-2);
     --stari-main-text-color: var(--stari-black-1);
     --stari-secondary-text-color: var(--stari-gray-1);
+    --stari-tertiary-text-color: var(--stari-white-1);
     --stari-main-bg-color: var(--stari-white-1);
     --stari-main-shadow-color: var(--stari-white-shadow-1);
     --stari-secondary-bg-color: var(--stari-white-2);
@@ -26,8 +27,9 @@ body.concepts {
 }
 
 body.entities {
-    --stari-header-background: var(--stari-main-gradient);
-    --stari-header-icons-color: var(--stari-main-bg-color);
+    --stari-header-background: var(--stari-main-gradient-color-2);
+    --stari-header-text-color: var(--stari-tertiary-text-color);
+    --stari-header-icons-color: var(--stari-tertiary-text-color);
     --stari-page-background: var(--stari-main-bg-color);
     --stari-page-icons-color: var(--stari-main-text-color);
     --stari-post-text-1: var(--stari-main-text-color);
