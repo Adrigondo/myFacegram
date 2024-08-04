@@ -17,7 +17,7 @@ sqlparse = "^0.5.1"
 daphne = "^4.1.2"
 django-storages = {extras = ["s3"], version = "^1.14.3"}
 twisted = {extras = ["http2", "tls"], version = "^24.3.0"}
-mysqlclient = "^2.2.4"
+psycopg2 = "^2.9.9"
 
 
 [build-system]

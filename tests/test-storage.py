@@ -6,7 +6,7 @@ print(os.environ.get('SECRET_ACCESS_KEY'))
 # Environment variables
 access_key_id = os.environ.get('ACCESS_KEY_ID')
 secret_access_key = os.environ.get('SECRET_ACCESS_KEY')
-endpoint_url = 'https://5868f1c65dbb2a8c20cd09e90d5d3c29.r2.cloudflarestorage.com'
+endpoint_url = f'https://{os.environ.get('SECRET_ACCESS_KEY')}.r2.cloudflarestorage.com'
 bucket_name = 'my-facegram-storage'
 
 s3 = boto3.client(
