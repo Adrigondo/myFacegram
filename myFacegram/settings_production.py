@@ -100,16 +100,16 @@ WSGI_APPLICATION = 'myFacegram.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ['AWS_DB_NAME'],
-        'USER': os.environ['AWS_DB_USER'],
-        'PASSWORD': os.environ['AWS_DB_PASSWORD'],
-        'HOST': os.environ['AWS_DB_HOST'],
-        'PORT': os.environ['AWS_DB_PORT'],
-        'OPTIONS':{
-            'sql_mode': 'STRICT_TRANS_TABLES',
-            # 'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-        }
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.environ['POSTGRESQL_ADDON_DB'],
+        'USER': os.environ['POSTGRESQL_ADDON_USER'],
+        'PASSWORD': os.environ['POSTGRESQL_ADDON_PASSWORD'],
+        'HOST': os.environ['POSTGRESQL_ADDON_HOST'],
+        'PORT': os.environ['POSTGRESQL_ADDON_PORT'],
+        # 'OPTIONS':{
+        #     'sql_mode': 'STRICT_TRANS_TABLES',
+        #     # 'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        # }
     }
 }
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
