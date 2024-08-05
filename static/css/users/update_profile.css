@@ -1,0 +1,46 @@
+
+/* -------------- UPDATE PROFILE ------------- */
+/* .container-update-profile .user-data {
+    background-color: #00beff14;
+    border-radius: 10px;
+    padding: 20px;
+} */
+
+.container-update-profile .picture-big {
+    width: 15rem;
+    height: 15rem;
+}
+
+.container-update-profile .profile-picture .hover-img {
+    position: absolute;
+    z-index: 5;
+    background-color: #010b4260;
+    width: inherit;
+    height: inherit;
+    display: none;
+}
+
+.container-update-profile .profile-picture .custom-file-input {
+    width: 70%;
+    height: 4rem;
+}
+
+.container-update-profile .profile-picture .custom-file-label {
+    width: 70%;
+    height: 4rem;
+    bottom: 0;
+    background: none;
+    border: none;
+    margin: auto;
+    color: #ffffff;
+    padding: 0;
+    text-align: center;
+}
+
+.container-update-profile .profile-picture .custom-file-label::after {
+    background-color: #0464ff;
+    color: #ffffff;
+    position: unset;
+    border-radius: 10px;
+    margin-top: 2px;
+}

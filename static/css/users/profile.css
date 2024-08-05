@@ -1,0 +1,45 @@
+.profile-container-fixed {
+    width: inherit;
+    position: fixed;
+    z-index: 100;
+    container-type: size;
+    container-name: profile-container;
+}
+.profile-container {
+    background-color: var(--stari-profile-bg-color);
+    border-radius: 0.25rem;
+    padding: 1rem;
+    margin-left: auto;
+    width: fit-content;
+    position: relative;
+    display: flex;
+    height: fit-content;
+    gap: 0.5rem;
+}
+@container profile-container (max-width: 200px){
+    .profile-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
+    .profile-container .profile-header{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
+    .profile-container *{
+        text-align: end;
+        width: fit-content;
+    }
+}
+.profile-container .profile-picture-container {
+    width: auto;
+    height: 100%;
+    aspect-ratio: 1;
+}
+.profile-container .profile-picture-container {
+    max-width: 4rem;
+    max-height: 4rem;
+}

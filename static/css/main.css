@@ -4,6 +4,7 @@ body.colors {
     --stari-blue-shadow-1: #98bcff80;
     --stari-pink-1: #ff0077;
     --stari-pink-2: #bc095d;
+    --stari-pink-3: #ffecf4;
     --stari-pink-shadow-1: #eb147880;
     --stari-white-1: #fef9ff;
     --stari-white-2: #ffffff;
@@ -24,6 +25,7 @@ body.concepts {
     --stari-main-bg-color: var(--stari-white-1);
     --stari-secondary-bg-color: var(--stari-white-2);
     --stari-tertiary-bg-color: var(--stari-white-3);
+    --stari-main-alternative-bg-color: var(--stari-pink-3);
     --stari-main-shadow-color-1: var(--stari-white-shadow-1);
     --stari-main-shadow-color-2: var(--stari-pink-shadow-1);
     --stari-secondary-shadow-color: var(--stari-white-shadow-2);
@@ -47,6 +49,7 @@ body.entities {
     --stari-auth-form-button-bg-color: var(--stari-main-gradient-color-1);
     --stari-auth-form-button-hover-bg-color: var(--stari-main-gradient-color-2);
     --stari-auth-form-button-shadow-color: var(--stari-main-shadow-color-2);
+    --stari-profile-bg-color: var(--stari-main-alternative-bg-color);
 }
 
 body {
@@ -94,50 +97,4 @@ body {
     border-radius: 100rem;
     object-fit: cover;
     object-position: center;
-}
-
-/* -------------- UPDATE PROFILE ------------- */
-.container-update-profile .user-data {
-    background-color: #00beff14;
-    border-radius: 10px;
-    padding: 20px;
-}
-
-.container-update-profile .picture-big {
-    width: 15rem;
-    height: 15rem;
-}
-
-.container-update-profile .profile-picture .hover-img {
-    position: absolute;
-    z-index: 5;
-    background-color: #010b4260;
-    width: inherit;
-    height: inherit;
-    display: none;
-}
-
-.container-update-profile .profile-picture .custom-file-input {
-    width: 70%;
-    height: 4rem;
-}
-
-.container-update-profile .profile-picture .custom-file-label {
-    width: 70%;
-    height: 4rem;
-    bottom: 0;
-    background: none;
-    border: none;
-    margin: auto;
-    color: #ffffff;
-    padding: 0;
-    text-align: center;
-}
-
-.container-update-profile .profile-picture .custom-file-label::after {
-    background-color: #0464ff;
-    color: #ffffff;
-    position: unset;
-    border-radius: 10px;
-    margin-top: 2px;
 }

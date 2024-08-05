@@ -7,65 +7,45 @@
 {% load static %}
 
 {% block content %}
-{% block css %}
-  <link rel="stylesheet" href="{% static 'css/posts/posts-grid.css' %}" />
-{% endblock %}
-  <div class="container container-update-profile">
+  {% block css %}
+    <link rel="stylesheet" href="{% static 'css/posts/posts-grid.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/users/profile.css' %}" />
+  {% endblock %}
+  <div class="container-fluid">
     <div class="row">
-      <div class="col col-lg-8 offset-lg-2">
-        <div class="user-data d-flex">
-          <div class="row">
-            <div class="col-10 col-md-6 photo-name">
-              <div class="profile-picture-container picture-big m-auto">
-                <img src="{% if user.profile.picture %}
-                    {{ user.profile.picture.url }}
-                  {% else %}
-                    {% static 'img/user_logo.png' %}
-                  {% endif %}"
-                  alt="{{ user.first_name }}"
-                  class="profile-picture rounded-circle"
-                  id="profile-picture-{{ user.pk }}" />
-              </div>
-              <div class="text-center">
-                <h2>@{{ user.username }}</h2>
-                <h3>{{ user.first_name }} {{ user.last_name }}</h3>
-              </div>
-              <div class="d-flex justify-content-end">
-                {% if user == request.user %}
-                  <a href="{% url 'users:update_profile' %}" class="btn btn-outline-info">Edit profile</a>
+      <div class="col-3 position-relative">
+        <div class="profile-container-fixed">
+          <div class="profile-container">
+            <div class="profile-picture-container picture-big">
+              <img src="{% if user.profile.picture %}
+                  {{ user.profile.picture.url }}
                 {% else %}
-                  <a href="" class="btn btn-outline-primary">Follow</a>
-                {% endif %}
-              </div>
+                  {% static 'img/user_logo.png' %}
+                {% endif %}"
+                alt="{{ user.first_name }}"
+                class="profile-picture rounded-circle"
+                id="profile-picture-{{ user.pk }}" />
             </div>
-            <div class="col-10 col-md-6 description text-left">
-              <h4 class="mb-4">About {{ user.first_name }} {{ user.last_name }}...</h4>
-              <h6 class="d-inline">Email:</h6>
-              <label>{{ user.email }}</label>
-              <br />
-              <h6 class="d-inline">Birthday:</h6>
-              <label>{{ user.profile.birthday }}/{{ user.profile.birthmonth }}/{{ user.profile.birthyear }}</label>
-              <br />
-              <h6 class="d-inline">Phone number:</h6>
-              <label>{{ user.profile.phone_number }}</label>
-              <br />
-              <h6 class="d-inline">Description:</h6>
+            <div class="profile-header">
+              <h1 class="h6 pb-0 mb-0">@{{ user.username }}</h1>
+              <h1 class="h6 pb-0 mb-0">{{ user.first_name }} {{ user.last_name }}</h1>
               <label>{{ user.profile.description }}</label>
-              <br />
             </div>
           </div>
         </div>
       </div>
+      <div class="col-9">
+        <div class="container">
+          <section class="posts-grid">
+            {% for post in posts %}
+              <article class="post-container">
+                {% include 'posts/post.html' with post=post %}
+              </article>
+            {% endfor %}
+          </section>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="container">
-    <section class="posts-grid">
-      {% for post in posts %}
-        <article class="post-container">
-          {% include 'posts/post.html' with post=post %}
-        </article>
-      {% endfor %}
-    </section>
   </div>
 {% endblock %}
 
