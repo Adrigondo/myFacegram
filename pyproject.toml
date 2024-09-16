@@ -12,7 +12,7 @@ python = "^3.12"
 asgiref = "^3.8.1"
 Django = "^5.0.7"
 pillow = "^10.4.0"
-pytz = "^2024.1"
+pytz = "^2024.2"
 sqlparse = "^0.5.1"
 
 
